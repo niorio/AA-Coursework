@@ -29,24 +29,25 @@ class Tile
       if @bomb
         return "B"
       else
-        return "_"
+        return "_" if neighbor_bomb_count == 0
+        return neighbor_bomb_count
       end
       #bomb_neighbor_count
     end
   end
 
-  def neighbor_bomb_count(board)
+  def neighbor_bomb_count
     x, y = @coordinate
 
     bomb_count = 0
 
     NEIGHBORS.each do |(xd, yd)|
 
-      new_position = [xd + x, yd+ y]
+      new_position = [xd + x, yd + y]
 
       if new_position.all? { |coord| coord.between?(0,8)}
         ##valid neighbors
-        bomb_count += 1 if board[new_position].bomb
+        bomb_count += 1 if @board[new_position].bomb
       end
 
     end
@@ -57,6 +58,40 @@ class Tile
 
   def reveal
     @revealed = true
+
+    return if neighbor_bomb_count > 0
+
+    neighbors.each do |neighbor|
+
+      neighbor.reveal if ! neighbor.revealed
+
+    end
+
+    #!@bomb
+  end
+
+  def neighbors
+
+    x, y = @coordinate
+
+    result = []
+
+    NEIGHBORS.each do |(xd, yd)|
+
+      new_position = [xd + x, yd+ y]
+
+      if new_position.all? { |coord| coord.between?(0,8)}
+        result << @board[new_position]
+      end
+
+    end
+
+    result
+
+  end
+
+  def get_board(board)
+    @board = board
   end
 
 end
@@ -76,12 +111,16 @@ class Board
       end
     end
 
+    @board.each_with_index do |row, x|
+      row.each_index do |y|
+        @board[x][y].get_board(self)
+      end
+    end
+
     puts "THIS IS THE USER DISPLAY"
     display
     puts "THIS IS THE BOMB DISPLAY"
     bomb_display
-
-
 
   end
 
@@ -129,5 +168,5 @@ class Board
 end
 
 
-#a = Board.new
-#a.display
+a = Board.new
+a.display
