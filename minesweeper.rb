@@ -1,4 +1,5 @@
 require 'byebug'
+require 'yaml'
 
 class Array
 
@@ -126,7 +127,7 @@ class Board
 
     @board.each do |row|
       row.each do |el|
-        print el.show
+        print el.show + " "
       end
       puts
     end
@@ -138,8 +139,8 @@ class Board
   def bomb_display
     @board.each do |row|
       row.each do |el|
-        print "*" if !el.bomb
-        print "B" if el.bomb
+        print "* " if !el.bomb
+        print "B " if el.bomb
       end
       puts
     end
@@ -160,11 +161,12 @@ class Minesweeper
 
   def initialize
     @board = Board.new
+    @time = Time.now
   end
 
   def play
 
-    puts
+    puts "\nTimer: #{(Time.now - @time).round}"
     puts "THIS IS THE USER DISPLAY"
     @board.display
     puts "THIS IS THE BOMB DISPLAY"
@@ -173,12 +175,16 @@ class Minesweeper
     lose = false
 
     while !win? && !lose
-      puts "If you wish to place a flag, enter F.  If not, hit enter, then enter your coordinate."
+      puts "If you would like to save, enter S"
+      puts "If you wish to place a flag, enter F."
+      puts "To enter coordinates, hit enter then enter coordinate"
       action = gets.chomp.upcase
 
       if action == "F"
         tile = @board[user_input]
         tile.flagged = ! tile.flagged
+      elsif action == "S"
+        Minesweeper.save_game(self)
       else
         tile = @board[user_input]
         tile.reveal unless tile.flagged
@@ -188,6 +194,7 @@ class Minesweeper
         #    puts "Invalid input"
       end
 
+      puts "\nTimer: #{(Time.now - @time).round}"
       @board.display
     end
 
@@ -207,8 +214,6 @@ class Minesweeper
         revealed_tile_count += 1 if row[y].revealed
       end
     end
-
-    p revealed_tile_count
 
     return true if revealed_tile_count == 71
 
@@ -232,17 +237,26 @@ class Minesweeper
     [row, column]
   end
 
-  def self.load_game
+
+  def self.load_game(file_name)
+    game_yaml = File.read(file_name)
+    YAML.load(game_yaml)
+  end
+
+  def self.save_game(game)
+    title = Time.now.to_s# + ".txt"
+    File.open(title, "w") do |f|
+      f.puts game.to_yaml
+    end
   end
 
 end
 
-
-
 if __FILE__ == $PROGRAM_NAME
 
   if ARGV[0]
-    game = Minesweeper.load_game(ARGV)
+    game = Minesweeper.load_game(ARGV[0])
+    ARGV.shift
   else
     game = Minesweeper.new
   end
