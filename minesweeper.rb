@@ -21,12 +21,16 @@ class Tile
   end
 
   def show
-    if ! @reveealed
+    if ! @revealed
       return "*"
       #blank
       #with flag
     else
-      return "B" if bomb
+      if @bomb
+        return "B"
+      else
+        return "_"
+      end
       #bomb_neighbor_count
     end
   end
@@ -34,7 +38,20 @@ class Tile
   def neighbor_bomb_count(board)
     x, y = @coordinate
 
+    bomb_count = 0
 
+    NEIGHBORS.each do |(xd, yd)|
+
+      new_position = [xd + x, yd+ y]
+
+      if new_position.all? { |coord| coord.between?(0,8)}
+        ##valid neighbors
+        bomb_count += 1 if board[new_position].bomb
+      end
+
+    end
+
+    bomb_count
 
   end
 
@@ -45,6 +62,8 @@ class Tile
 end
 
 class Board
+
+  attr_reader :board
 
   def initialize
     @board = Array.new(9) { Array.new(9) }
@@ -57,14 +76,21 @@ class Board
       end
     end
 
-
-
     puts "THIS IS THE USER DISPLAY"
     display
     puts "THIS IS THE BOMB DISPLAY"
     bomb_display
 
+
+
   end
+
+  def [](pos)
+    x, y = pos[0], pos[1]
+    @board[x][y]
+  end
+
+
 
   def display
 
@@ -103,5 +129,5 @@ class Board
 end
 
 
-a = Board.new
+#a = Board.new
 #a.display
