@@ -3,10 +3,21 @@ class Tile
   attr_accessor :revealed
   attr_reader :bomb
 
-  def initialize(bomb)
+  NEIGHBORS = [
+    [-1,-1],
+    [0,-1],
+    [1,-1],
+    [-1,0],
+    [1,0],
+    [-1,1],
+    [0,1],
+    [1,1]
+  ]
+
+  def initialize(bomb, coordinate)
     @revealed = false
     @bomb = bomb
-    #@value
+    @coordinate = coordinate
   end
 
   def show
@@ -21,7 +32,9 @@ class Tile
   end
 
   def neighbor_bomb_count(board)
-    
+    x, y = @coordinate
+
+
 
   end
 
@@ -38,9 +51,9 @@ class Board
 
     bomb_array = generate_bombs
 
-    @board.each do |row|
-      row.each_index do |i|
-        row[i] = Tile.new(bomb_array.shift)
+    @board.each_with_index do |row, x|
+      row.each_index do |y|
+        row[y] = Tile.new(bomb_array.shift, [x,y])
       end
     end
 
