@@ -1,6 +1,6 @@
 class Tile
 
-  attr_accessor :revealed
+  attr_accessor :revealed, :flagged
   attr_reader :bomb
 
   NEIGHBORS = [
@@ -18,13 +18,14 @@ class Tile
     @revealed = false
     @bomb = bomb
     @coordinate = coordinate
+    @flagged = false
   end
 
   def show
-    if ! @revealed
+    if @flagged
+      return "F"
+    elsif ! @revealed
       return "*"
-      #blank
-      #with flag
     else
       if @bomb
         return "B"
@@ -32,7 +33,6 @@ class Tile
         return "_" if neighbor_bomb_count == 0
         return neighbor_bomb_count
       end
-      #bomb_neighbor_count
     end
   end
 
@@ -117,7 +117,7 @@ class Board
       end
     end
 
-    play
+    #play
 
   end
 
@@ -128,18 +128,26 @@ class Board
     puts "THIS IS THE BOMB DISPLAY"
     bomb_display
 
-   #win = false
     lose = false
 
     while !win? && !lose
+      puts "Do you want to flag or reveal (F/R)?"
+      action = gets.chomp.upcase
       tile = self[user_input]
-      tile.reveal
-      display
-      lose = true if tile.bomb
 
+      if action == "R"
+        tile.reveal
+        lose = true if tile.bomb
+      elsif action == "F"
+        tile.flagged = true
+      else
+        puts "Invalid input"
+      end
+
+      display
     end
 
-    put "You Win!" if win?
+    puts "You Win!" if win?
 
     puts "YOU LOSE!" if lose
 
@@ -151,17 +159,22 @@ class Board
 
     @board.each_with_index do |row, x|
       row.each_index do |y|
-        revealed_tile_count +=1 if row[y].revealed
+        revealed_tile_count += 1 if row[y].revealed
       end
     end
 
-    true if revealed_tile_count == 71
+    p revealed_tile_count
+
+    return true if revealed_tile_count == 71
 
     false
+
 
   end
 
   def user_input
+
+
 
     bomb_display
     puts "Enter your row."
@@ -227,7 +240,3 @@ class Board
   end
 
 end
-
-
-a = Board.new
-a.display
