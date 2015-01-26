@@ -24,16 +24,19 @@ class Tile
   def show
     if @flagged
       return "F"
-    elsif ! @revealed
+
+    elsif !@revealed
       return "*"
+
     else
       if @bomb
         return "B"
       else
-        return "_" if neighbor_bomb_count == 0
-        return neighbor_bomb_count
+        neighbor_bomb_count == 0 ? "_" : neighbor_bomb_count
       end
     end
+
+
   end
 
   def neighbor_bomb_count
@@ -46,7 +49,6 @@ class Tile
       new_position = [xd + x, yd + y]
 
       if new_position.all? { |coord| coord.between?(0,8)}
-        ##valid neighbors
         bomb_count += 1 if @board[new_position].bomb
       end
 
@@ -67,7 +69,6 @@ class Tile
 
     end
 
-    #!@bomb
   end
 
   def neighbors
@@ -131,17 +132,19 @@ class Board
     lose = false
 
     while !win? && !lose
-      puts "Do you want to flag or reveal (F/R)?"
+      puts "If you wish to place a flag, enter F.  If not, hit enter, then enter your coordinate."
       action = gets.chomp.upcase
-      tile = self[user_input]
 
-      if action == "R"
-        tile.reveal
-        lose = true if tile.bomb
-      elsif action == "F"
-        tile.flagged = true
+      if action == "F"
+        tile = self[user_input]
+        tile.flagged = ! tile.flagged
       else
-        puts "Invalid input"
+        tile = self[user_input]
+        tile.reveal unless tile.flagged
+        lose = true if tile.bomb unless tile.flagged
+        puts "\nYou selected a tile that has been flagged.  No action was taken!" if tile.flagged
+    #  else
+    #    puts "Invalid input"
       end
 
       display
@@ -169,18 +172,15 @@ class Board
 
     false
 
-
   end
 
   def user_input
-
-
 
     bomb_display
     puts "Enter your row."
     row = gets.chomp.to_i
 
-    while !row.between?(0,8)
+    while !row.between?(0,8) || !row.is_a?(Integer)
       puts "Invalid Input - try again."
       puts
       user_input
@@ -190,12 +190,11 @@ class Board
     puts "Enter your column."
     column = gets.chomp.to_i
 
-    while !column.between?(0,8)
+    while !column.between?(0,8) || !row.is_a?(Integer)
       puts "Invalid Input - try again."
       puts
       user_input
     end
-
 
     [row, column]
   end
