@@ -160,7 +160,6 @@ class Minesweeper
 
   def initialize
     @board = Board.new
-    play
   end
 
   def play
@@ -198,6 +197,7 @@ class Minesweeper
 
   end
 
+
   def win?
 
     revealed_tile_count = 0
@@ -231,5 +231,22 @@ class Minesweeper
 
     [row, column]
   end
+
+  def self.load_game
+  end
+
+end
+
+
+
+if __FILE__ == $PROGRAM_NAME
+
+  if ARGV[0]
+    game = Minesweeper.load_game(ARGV)
+  else
+    game = Minesweeper.new
+  end
+
+  game.play
 
 end
