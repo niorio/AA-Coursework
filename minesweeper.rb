@@ -117,19 +117,80 @@ class Board
       end
     end
 
+    play
+
+  end
+
+  def play
+
     puts "THIS IS THE USER DISPLAY"
     display
     puts "THIS IS THE BOMB DISPLAY"
     bomb_display
 
+   #win = false
+    lose = false
+
+    while !win? && !lose
+      tile = self[user_input]
+      tile.reveal
+      display
+      lose = true if tile.bomb
+
+    end
+
+    put "You Win!" if win?
+
+    puts "YOU LOSE!" if lose
+
+  end
+
+  def win?
+
+    revealed_tile_count = 0
+
+    @board.each_with_index do |row, x|
+      row.each_index do |y|
+        revealed_tile_count +=1 if row[y].revealed
+      end
+    end
+
+    true if revealed_tile_count == 71
+
+    false
+
+  end
+
+  def user_input
+
+    bomb_display
+    puts "Enter your row."
+    row = gets.chomp.to_i
+
+    while !row.between?(0,8)
+      puts "Invalid Input - try again."
+      puts
+      user_input
+    end
+
+
+    puts "Enter your column."
+    column = gets.chomp.to_i
+
+    while !column.between?(0,8)
+      puts "Invalid Input - try again."
+      puts
+      user_input
+    end
+
+
+    [row, column]
   end
 
   def [](pos)
     x, y = pos[0], pos[1]
     @board[x][y]
   end
-
-
 
   def display
 
