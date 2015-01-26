@@ -7,30 +7,32 @@ class Tile
     @bomb = false
   end
 
-
-
 end
 
 class Board
 
   def initialize
-    @board = Array.new(9) { Array.new(9) }
-
-    @board.each do |row|
-      @board.each do |col|
-        @board[row][col] = Tile.new
-      end
-    end
+    @board = Array.new(9) { Array.new(9) {"*"} }
   end
+
+  #  @board.each do |row|
+    #  9.times { @board[row] << Tile.new }
+    #end
+
+  #end
 
 
   def display
+
     @board.each do |row|
-      @board.each do |col|
-         p "*" if @board[row][col].revealed == false
+      row.each do |el|
+        print el
       end
+      puts
     end
+
   end
+
 end
 
 
