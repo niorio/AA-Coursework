@@ -19,6 +19,28 @@ class WordChainer
     end
 
     adjacents
+  end
+
+
+  def run(source, target)
+    @current_words = [source]
+    @all_seen_words = [source]
+
+    until @current_words.empty?
+      new_current_words = []
+
+      @current_words.each do |word|
+        adjacent_words(word).each do |adjacent|
+          next if @all_seen_words.include?(adjacent)
+          new_current_words << adjacent
+          @all_seen_words << adjacent
+        end
+      end
+
+      p new_current_words
+      @current_words = new_current_words
+    end
+
 
   end
 
