@@ -2,19 +2,18 @@ require 'byebug'
 require 'yaml'
 
 class Array
-
   def valid?
     self.all? { |coord| coord.between?(0,8) }
   end
-
 end
+
 
 class Tile
 
   attr_accessor :revealed, :flagged
   attr_reader :bomb
 
-  NEIGHBORS = [
+  ADJACENTS = [
     [-1,-1],
     [0,-1],
     [1,-1],
@@ -54,12 +53,12 @@ class Tile
 
     bomb_count = 0
 
-    NEIGHBORS.each do |(xd, yd)|
+    ADJACENTS.each do |(dx, dy)|
 
-      new_position = [ (xd + x), (yd + y) ]
+      new_position = [ (x + dx), (y + dy) ]
 
-      if new_position.valid?
-        (bomb_count += 1) if @board[new_position].bomb
+      if new_position.valid? && @board[new_position].bomb
+        (bomb_count += 1)
       end
 
     end
@@ -86,10 +85,9 @@ class Tile
 
     result = []
 
-    NEIGHBORS.each do |(xd, yd)|
+    ADJACENTS.each do |(dx, dy)|
 
-      new_position = [ (xd + x), (yd + y) ]
-
+      new_position = [ (x + dx), (y + dy) ]
       result << @board[new_position] if new_position.valid?
 
     end
@@ -101,18 +99,17 @@ class Tile
 end
 
 class Board
-
   attr_reader :board
 
   def initialize
 
     @board = Array.new(9) { Array.new(9) }
 
-    bomb_array = generate_bombs
+    bomb_distribution = generate_bombs
 
-    @board.each_with_index do |row, x|
-      row.each_index do |y|
-        row[y] = Tile.new(bomb_array.shift, [x,y], self)
+    @board.each_index do |r|
+      @board[r].each_index do |c|
+        @board[r][c] = Tile.new(bomb_distribution.shift, [r,c], self)
       end
     end
 
@@ -136,17 +133,17 @@ class Board
 
   end
 
-  def bomb_display
-    @board.each do |row|
-      row.each do |el|
-        print "* " if !el.bomb
-        print "B " if el.bomb
-      end
-      puts
-    end
-
-    puts
-  end
+  # def bomb_display
+  #   @board.each do |row|
+  #     row.each do |el|
+  #       print "* " if !el.bomb
+  #       print "B " if el.bomb
+  #     end
+  #     puts
+  #   end
+  #
+  #   puts
+  # end
 
   def generate_bombs
     bombs = []
@@ -157,26 +154,25 @@ class Board
 
 end
 
+
 class Minesweeper
 
   def initialize
     @board = Board.new
-    @time = Time.now
+    @start_time = Time.now
   end
 
   def play
 
-    puts "\nTimer: #{(Time.now - @time).round}"
-    puts "THIS IS THE USER DISPLAY"
-    @board.display
-    puts "THIS IS THE BOMB DISPLAY"
-    @board.bomb_display
-
     lose = false
 
     while !win? && !lose
+
+      puts "\nTimer: #{(Time.now - @start_time).round}"
+      @board.display
+
       puts "If you would like to save, enter S"
-      puts "If you wish to place a flag, enter F."
+      puts "If you wish to flag/unflag, enter F."
       puts "To enter coordinates, hit enter then enter coordinate"
       action = gets.chomp.upcase
 
@@ -190,13 +186,11 @@ class Minesweeper
         tile.reveal unless tile.flagged
         lose = true if tile.bomb unless tile.flagged
         puts "\nYou selected a tile that has been flagged.  No action was taken!" if tile.flagged
-        #  else
-        #    puts "Invalid input"
       end
 
-      puts "\nTimer: #{(Time.now - @time).round}"
-      @board.display
     end
+
+    @board.display
 
     puts "You Win!" if win?
 
