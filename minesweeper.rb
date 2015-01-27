@@ -133,17 +133,17 @@ class Board
 
   end
 
-  # def bomb_display
-  #   @board.each do |row|
-  #     row.each do |el|
-  #       print "* " if !el.bomb
-  #       print "B " if el.bomb
-  #     end
-  #     puts
-  #   end
-  #
-  #   puts
-  # end
+  def bomb_display
+    @board.each do |row|
+      row.each do |el|
+        print "* " if !el.bomb
+        print "B " if el.bomb
+      end
+      puts
+    end
+
+    puts
+  end
 
   def generate_bombs
     bombs = []
@@ -151,6 +151,19 @@ class Board
     10.times {bombs << true}
     bombs.shuffle
   end
+
+  def all_tiles
+
+    [].tap do |tiles|
+      9.times do |r|
+        9.times do |c|
+          tiles << @board[r][c]
+        end
+      end
+    end
+
+  end
+
 
 end
 
@@ -163,6 +176,7 @@ class Minesweeper
   end
 
   def play
+    @board.bomb_display
 
     lose = false
 
@@ -201,17 +215,21 @@ class Minesweeper
 
   def win?
 
-    revealed_tile_count = 0
-
-    @board.board.each_with_index do |row, x|
-      row.each_index do |y|
-        revealed_tile_count += 1 if row[y].revealed
-      end
+    @board.all_tiles.all? do |tile|
+      tile.revealed || tile.bomb
     end
 
-    return true if revealed_tile_count == 71
-
-    false
+    # revealed_tile_count = 0
+    #
+    # @board.board.each_with_index do |row, x|
+    #   row.each_index do |y|
+    #     revealed_tile_count += 1 if row[y].revealed
+    #   end
+    # end
+    #
+    # return true if revealed_tile_count == 71
+    #
+    # false
 
   end
 
