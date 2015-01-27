@@ -93,6 +93,7 @@ class Board
   attr_reader :board
 
   def initialize
+    @start_time = Time.now
 
     @board = Array.new(9) { Array.new(9) }
 
@@ -112,6 +113,9 @@ class Board
   end
 
   def display
+
+    system('clear')
+    puts "\nTimer: #{(Time.now - @start_time).round}"
 
     @board.each do |row|
       row.each do |el|
@@ -172,12 +176,9 @@ class Minesweeper
 
     while !win? && !lose
 
-      puts "\nTimer: #{(Time.now - @start_time).round}"
       @board.display
 
-      puts "If you would like to save, enter S"
-      puts "If you wish to flag/unflag, enter F."
-      puts "To enter coordinates, hit enter then enter coordinate"
+      puts "S to save. F to flag/unflag. ENTER to reveal a position."
       action = gets.chomp.upcase
 
       if action == "F"
@@ -194,6 +195,8 @@ class Minesweeper
       end
 
     end
+
+
 
     @board.display
 
@@ -213,13 +216,13 @@ class Minesweeper
 
   def user_input
 
-    puts "Enter your row."
+    print "Enter your row: "
     row = gets.chomp.to_i
 
-    puts "Enter your column."
+    print "Enter your column: "
     column = gets.chomp.to_i
 
-    while ![row,column].valid?
+    until [row,column].valid?
       puts "Invalid Input - try again."
       row, column = user_input
     end
