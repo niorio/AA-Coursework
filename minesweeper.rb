@@ -114,7 +114,7 @@ class Board
   def display
 
     system('clear')
-    puts "\nTimer: #{(Time.now - @start_time).round}"
+    puts "Timer: #{(Time.now - @start_time).round}\n\n"
 
     @board.each do |row|
       row.each do |el|
