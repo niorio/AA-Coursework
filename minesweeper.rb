@@ -48,19 +48,10 @@ class Tile
   end
 
   def neighbor_bomb_count
-
-    x, y = @coordinate
-
     bomb_count = 0
 
-    ADJACENTS.each do |(dx, dy)|
-
-      new_position = [ (x + dx), (y + dy) ]
-
-      if new_position.valid? && @board[new_position].bomb
-        (bomb_count += 1)
-      end
-
+    neighbors.each do |neighbor|
+      bomb_count += 1 if neighbor.bomb
     end
 
     bomb_count
@@ -176,7 +167,6 @@ class Minesweeper
   end
 
   def play
-    @board.bomb_display
 
     lose = false
 
@@ -195,6 +185,7 @@ class Minesweeper
         tile.flagged = ! tile.flagged
       elsif action == "S"
         Minesweeper.save_game(self)
+        return
       else
         tile = @board[user_input]
         tile.reveal unless tile.flagged
@@ -218,19 +209,6 @@ class Minesweeper
     @board.all_tiles.all? do |tile|
       tile.revealed || tile.bomb
     end
-
-    # revealed_tile_count = 0
-    #
-    # @board.board.each_with_index do |row, x|
-    #   row.each_index do |y|
-    #     revealed_tile_count += 1 if row[y].revealed
-    #   end
-    # end
-    #
-    # return true if revealed_tile_count == 71
-    #
-    # false
-
   end
 
   def user_input
@@ -256,7 +234,9 @@ class Minesweeper
   end
 
   def self.save_game(game)
-    title = Time.now.to_s# + ".txt"
+    print "Give it a name: "
+    title = gets.chomp
+
     File.open(title, "w") do |f|
       f.puts game.to_yaml
     end
