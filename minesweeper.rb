@@ -42,7 +42,7 @@ class Tile
       if @bomb
         "B"
       else
-        neighbor_bomb_count == 0 ? "_" : neighbor_bomb_count
+        neighbor_bomb_count == 0 ? "_" : neighbor_bomb_count.to_s
       end
     end
 
