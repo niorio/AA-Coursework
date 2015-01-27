@@ -1,4 +1,3 @@
-require 'byebug'
 require 'yaml'
 
 class Array
@@ -128,17 +127,17 @@ class Board
 
   end
 
-  def bomb_display
-    @board.each do |row|
-      row.each do |el|
-        print "* " if !el.bomb
-        print "B " if el.bomb
-      end
-      puts
-    end
-
-    puts
-  end
+  # def bomb_display
+  #   @board.each do |row|
+  #     row.each do |el|
+  #       print "* " if !el.bomb
+  #       print "B " if el.bomb
+  #     end
+  #     puts
+  #   end
+  #
+  #   puts
+  # end
 
   def generate_bombs
     bombs = []
@@ -167,7 +166,6 @@ class Minesweeper
 
   def initialize
     @board = Board.new
-    @start_time = Time.now
   end
 
   def play
