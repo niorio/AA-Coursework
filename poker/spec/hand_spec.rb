@@ -97,7 +97,7 @@ describe Hand do
     end
   end
 
-  describe 'two_pair?' do
+  describe '#two_pair?' do
     it 'should return true if hand has two_pair' do
       hand = Hand.new([Card.new(:spades, :four),
                       Card.new(:hearts, :four),
@@ -108,6 +108,15 @@ describe Hand do
     end
   end
 
+  describe '#hand_value' do
+    it 'should return the strength(two_pair) and the high card value(5)' do
+      hand = Hand.new([Card.new(:spades, :four),
+                      Card.new(:hearts, :four),
+                      Card.new(:spades, :five),
+                      Card.new(:diamonds, :eight),
+                      Card.new(:spades, :five)])
+      expect(hand.hand_value).to eq([3,5])
 
-
+    end
+  end
 end

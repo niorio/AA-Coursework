@@ -11,17 +11,22 @@ class Hand
   def take(new_cards)
     @cards += new_cards
   end
-
-  def beats?(opponent_hand)
-    opponent_value = opponent_hand.hand_value
-
-    return true if @hand_value[0] > opponent_value[0]
-    return false if @hand_value[0] < opponent_value[0]
-
-    return true if @hand_value[1] > opponent_value[1]
-    false
-
-  end
+  #
+  # def winner(*opponent_values)
+  #   opponent_values.push
+  #   possible_winner = []
+  #   max_hand = 0
+  #   opponent_values.each do |hand_values|
+  #     possible_winner << hand_values if hand_values[0] >= max_hand
+  #   end
+  #   #
+  #   # return true if @hand_value[0] > opponent_value[0]
+  #   # return false if @hand_value[0] < opponent_value[0]
+  #   #
+  #   # return true if @hand_value[1] > opponent_value[1]
+  #   # false
+  #
+  # end
 
   def hand_value
     @hand_value = []
@@ -147,7 +152,7 @@ class Hand
       end
     end
     if pairs == 2
-      set.sort
+      set.max
     else
       false
     end
