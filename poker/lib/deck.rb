@@ -9,6 +9,14 @@ class Deck
     @cards.shuffle
   end
 
+  def deal(num)
+    dealt_cards = @cards.shift(num)
+  end
+
+  def return(cards)
+    @cards += cards
+  end
+
 
   private
 
