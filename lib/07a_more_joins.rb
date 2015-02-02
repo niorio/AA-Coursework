@@ -215,19 +215,16 @@ def expensive_tastes
     SELECT
       sums.style, sums.price / counts.songs
     FROM
-    (
-     SELECT
-       SUM(a.price) price, s.style
-     FROM
-       albums a
-     JOIN
-       styles s ON s.album = a.asin
-     GROUP BY
-       s.style) AS sums
-
+      (SELECT
+         SUM(a.price) price, s.style
+       FROM
+         albums a
        JOIN
-
-        (SELECT
+         styles s ON s.album = a.asin
+       GROUP BY
+         s.style) AS sums
+    JOIN
+      (SELECT
          COUNT(tr.song) songs, st.style
        FROM
          tracks tr
@@ -235,7 +232,8 @@ def expensive_tastes
          styles st ON st.album = tr.album
        GROUP BY
          st.style) AS counts
-        ON sums.style = counts.style
+    ON
+      sums.style = counts.style
     WHERE
       sums.price / counts.songs IS NOT NULL
     ORDER BY
