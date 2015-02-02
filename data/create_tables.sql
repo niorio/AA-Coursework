@@ -38,8 +38,8 @@ CREATE TABLE albums (
     asin character(10) NOT NULL,
     title character varying(50),
     artist character varying(50),
-    price character varying(50),
-    rdate character varying(50),
+    price decimal(10,2),
+    rdate date,
     label character varying(50),
     rank integer
 );
@@ -6059,177 +6059,177 @@ COPY actors (id, name) FROM stdin;
 \.
 
 COPY albums (asin, title, artist, price, rdate, label, rank) FROM stdin;
-B0000009VO	The Very Best Of Elvis Costello And The Attraction	Elvis Costello		25/10/1994	Ryko	1465
-B000000OU0	Hell Freezes Over	Eagles	13.99	08/11/1994		513
-B000000WA4	Mellon Collie and the Infinite Sadness	Smashing Pumpkins	21.99	24/10/1995		2332
-B000000WDA	Blur	Blur	11.98	11/03/1997		17154
-B000000WF0	Urban Hymns	The Verve	13.99	30/09/1997		1855
-B0000013G5	Toni Braxton	Toni Braxton	13.98	13/07/1993	La Face	6677
-B00000161Y	Romanza (Italian/Spanish Language Edition)	Andrea Bocelli	14.99	09/12/1997		7090
-B000001DQI	Goodbye Yellow Brick Road [ORIGINAL RECORDING REMA	Elton John	13.99			673
-B000001DTM	Achtung Baby	U2	13.99	19/11/1991		396
-B000001DVP	Elton John - Greatest Hits	Elton John	11.98			427
-B000001DZO	GoldGreatest Hits	Abba	13.49	09/08/1993		97
-B000001E8P	Different Class	Pulp	14.99	30/10/1995		6389
-B000001EW3	Come on Over	Shania Twain	13.99	04/11/1997		440
-B000001FDV	Saturday Night FeverThe Original Movie Sound Track	Bee Gees	14.99			162
-B000001FGW	Cake	Trash Can Sinatras	14.98	06/11/1990		11634
-B000001FLC	The Phantom Of The Opera (1986 Original London Cas	The Phantom Of The Opera (Related Recordings)		07/07/1987	Uni/Mercury	557
-B000001FS3	Joshua Tree	U2	13.49			601
-B000001FY9	Legend	Bob Marley	13.99	08/05/1984		1799
-B000001GHL	Ludwig van BeethovenSymphonies Nos. 3 & 9/Overture	Ludwig van Beethoven	16.49			2150
-B000001GPX	BeethovenSymphonien Nos. 5 & 7 / Kleiber, Vienna P	Ludwig van Beethoven	11.98			375
-B000001Y5Z	The Downward Spiral [EXPLICIT LYRICS]	Nine Inch Nails	14.99	08/03/1994		4511
-B0000024RJ	I Left My Heart in San Francisco	Tony Bennett	9.98		Sony	10664
-B0000024SI	Highway 61 Revisited	Bob Dylan	11.98		Sony	887
-B0000024SQ	The Movie Song Album	Tony Bennett	9.98		Sony	35565
-B0000024V3	Barbra Streisand - Greatest Hits	Barbara Streisand	14.99		Sony	22247
-B00000253N	Blood on the Tracks	Bob Dylan	11.98	17/01/1975	Sony	582
-B00000255F	Born to Run	Bruce Springsteen	13.98	25/08/1975	Sony	521
-B000002564	Silk Degrees	Boz Scaggs			Sony/Columbia	2035
-B0000025BL	Bat Out of Hell	Meat Loaf			Sony/Epic	1251
-B0000025FN	Live at Budokan [LIVE]	Cheap Trick			Sony	21487
-B0000025HO	ELO's Greatest Hits	E.L.O.	11.98		Sony	3198
-B0000025HU	London Calling	The Clash		14/12/1979	Sony	4626
-B0000025RI	Thriller	Michael Jackson			Sony/Columbia	708
-B0000025UW	Born in the U.S.A.	Bruce Springsteen	13.49	04/06/1984	Sony	780
-B0000025VL	ClassicsThe Early Years	Neil Diamond	11.98		Sony	9451
-B00000265P	16 Most Requested Songs	Johnny Mathis	11.98		Sony	2152
-B0000026CH	Faith	George Michael	13.98	01/01/1987	Sony	1449
-B0000026V1	BasherThe Best of Nick Lowe	Nick Lowe	11.98		Sony	10201
-B0000026W1	Greatest Hits...and More	Barbara Streisand	14.99	03/10/1989	Sony	4446
-B0000027RL	Ten	Pearl Jam	13.98	27/08/1991	Sony	811
-B0000028TU	Gloria Estefan - Greatest Hits	Gloria Estefan	14.99	03/11/1992	Sony	3956
-B00000294L	Suede	London Suede	11.98	06/04/1993	Sony	16523
-B0000029LG	HIStoryPast, Present and Future, Book 1	Michael Jackson	29.49	20/06/1995	Sony	1447
-B0000029YC	TitanicMusic from the Motion Picture (1997) [SOUND	Celine Dion	13.98	18/11/1997	Sony	4899
-B000002ADT	Kind of Blue	Wynton Kelly	11.98		Sony	180
-B000002AL7	Forty Years-Artistry of Tony B	Tony Bennett	35.99		Sony	10749
-B000002BBY	(What's The Story) Morning Glory?	Oasis	13.98	03/10/1995	Sony	777
-B000002BHE	Falling into You	Celine Dion	13.98	12/03/1996	Sony	1503
-B000002BQK	Butterfly	Mariah Carey	13.28	16/09/1997	Sony	18210
-B000002BZ0	Wide Open Spaces	Dixie Chicks	13.98	27/01/1998	Sony	88
-B000002C4J	Let's Talk About Love [ENHANCED CD]	Celine Dion	13.98	18/11/1997	Sony	5097
-B000002G3U	Every Breath You TakeThe Classics	The Police	13.99	12/09/1995		1058
-B000002GE7	Singles 45's and Under	Squeeze	11.98			4042
-B000002GVO	Hotel California	Eagles	13.99			1500
-B000002GVS	Eagles - Their Greatest Hits 1971-1975	Eagles	13.49			1443
-B000002H33	Master of Puppets	Metallica	13.99			744
-B000002H97	Metallica	Metallica	13.99	12/08/1991		836
-B000002I25	The Doors	The Doors	14.99			2702
-B000002I4U	The Genius of Ray Charles	Ray Charles	11.98		Atlantic	14200
-B000002IKH	50 by Bobby Short	Bobby Short and his Orchestra			Atlantic	23573
-B000002IT2	Little Earthquakes	Tori Amos	13.99	25/02/1992	Atlantic	1352
-B000002IVS	Greatest Hits-Experience the Divine	Bette Midler	14.99	22/06/1993	Atlantic	2181
-B000002IZ1	Amplified Heart	Everything But the Girl	13.98	19/07/1994	Atlantic	3329
-B000002J09	Led Zeppelin IV [ORIGINAL RECORDING REMASTERED]	Led Zeppelin	13.49	08/11/1971	Atlantic	430
-B000002JOT	Mack the Knife	Bobby Darin	11.98	12/11/1991	Atlantic	5329
-B000002KBX	Sail Away	Randy Newman				2890
-B000002KGT	Rumours	Fleetwood Mac	13.99	04/02/1977		631
-B000002KHF	Moondance	Van Morrison	11.98			582
-B000002L68	"Music from the Motion Picture ""Purple Rain"""	Prince	11.98			2273
-B000002L9J	The Queen is Dead	The Smiths	14.99			1437
-B000002LD7	The Singles	The Pretenders	14.99	17/11/1987		5998
-B000002LND	The Immaculate Collection	Madonna	13.49	13/11/1990		1204
-B000002LRR	Watermark	Enya	13.49			263
-B000002LSP	Ing..nue	K. D. Lang	13.98	17/03/1992		3566
-B000002MFE	Unplugged [LIVE]	Eric Clapton	13.99	25/08/1992		953
-B000002MG1	Automatic for the People	R.E.M.	13.99	06/10/1992		1205
-B000002MH7	San Francisco Days	Chris Isaak	11.98	13/04/1993		2990
-B000002MY3	Jagged Little Pill	Alanis Morissette	13.99	13/06/1995		870
-B000002NBY	Graceland	Paul Simon	13.49			314
-B000002NJS	Ray of Light	Madonna	14.99	03/03/1998		2566
-B000002O72	Cloudcuckooland	Lightning Seeds	11.98	03/04/1990	Mca	21189
-B000002OPK	Bing! His Legendary Years, 1931 to 1957 [BOX SET]	Bing Crosby	59.98	28/09/1993	Mca	28372
-B000002OX5	The Who Sell Out [ORIGINAL RECORDING REMASTERED] [	The Who	11.98		Mca	4874
-B000002P5Y	Are You Experienced?	Jimi Hendrix	13.99		Mca	756
-B000002PEF	The Greatest Hits [MCA]	Ink Spots		21/11/1989	Uni/Mca	6695
-B000002TRT	The Greatest Hits [Capitol]	Nat King Cole	13.99	18/10/1994	Capitol	1055
-B000002TU5	The Best...So Far	Anne Murray	13.99	29/11/1994	Capitol	1295
-B000002U82	Dark Side of the Moon	Pink Floyd	13.49	24/03/1973	Capitol	194
-B000002U98	Greatest Hits 1974-1978	Steve Miller Band	11.98		Capitol	1751
-B000002UAO	Rubber Soul [UK]	The Beatles	13.49	03/12/1965	Capitol	343
-B000002UAR	Revolver [UK]	The Beatles	13.49	05/08/1966	Capitol	242
-B000002UAU	Sgt. Pepper's Lonely Hearts Club Band	The Beatles	13.49	01/06/1967	Capitol	218
-B000002UAX	The Beatles (The White Album)	The Beatles	27.99		Capitol	409
-B000002UB3	Abbey Road	The Beatles	13.49	26/09/1969	Capitol	158
-B000002UB6	Let It Be [SOUNDTRACK]	The Beatles	13.99	08/05/1970	Capitol	1157
-B000002UJO	In It for the Money	Supergrass	16.98	06/05/1997	Capitol	30220
-B000002UJQ	OK Computer	Radiohead	13.49	01/07/1997	Capitol	755
-B000002ULQ	Sevens	Garth Brooks	14.99	25/11/1997	Capitol	20529
-B000002USX	Judy at Carnegie Hall [LIVE]	Judy Garland			Emd/Capitol	3561
-B000002UWM	The Capitol Years	Frank Sinatra	34.99	18/12/1990	Capitol	2649
-B000002VI0	Eurythmics - Greatest Hits	Eurythmics	14.99	24/05/1991	Arista	2318
-B000002VN7	Fumbling Towards Ecstasy	Sarah McLachlan	13.98	15/02/1994	Arista	853
-B000002VT6	Surfacing [ENHANCED CD]	Sarah McLachlan	13.49	15/07/1997	Arista	183
-B000002W6Q	Nilsson Schmilsson	Harry Nilsson	14.99		Rca	3480
-B000002WC1	Stardust & Much More	Hoagy Carmichael			Bmg/Rca	8277
-B000002WD4	All-Time Greatest Hits	Harry Nilsson	14.99	18/07/1989	Rca	2306
-B000002WFX	Top Ten Hits	Elvis Presley			Rca	25121
-B000002WFY	50 Worldwide Gold HitsVolume 1, Parts 1 & 2	Elvis Presley			Rca	8710
-B000002WQS	Under the Table & Dreaming	Dave Matthews Band	13.49	27/09/1994	Rca	486
-B000002WYT	Crash	Dave Matthews Band	13.49	30/04/1996	Rca	286
-B000002ZDA	Glen Campbell Collection (1962-1989)Gentle on My M	Glen Campbell	24.99	18/02/1997		10858
-B0000032AP	Greatest Hits, Vol. 1	The Kinks		28/03/1989	Rhino Records	2762
-B0000032WJ	The Dionne Warwick CollectionHer All-Time Greatest	Dionne Warwick	16.99		Rhino Records	2211
-B0000032WL	Something/Anything?	Todd Rundgren	16.99		Rhino Records	3886
-B00000334M	For The Lonely18 Greatest Hits	Roy Orbison	17.98		Rhino Records	34687
-B00000337M	The Mel TormCollection [BOX SET]	Mel Torme	53.99	04/06/1996	Rhino Records	28091
-B000003G8E	Star Wars, A New HopeThe Original Motion Picture S	The Star Wars Trilogy (1997 Release)	34.98		Rca	19685
-B000003N7G	A Love Supreme	John Coltrane	13.99	09/12/1964	Grp Records	442
-B000003TA4	Nevermind	Nirvana	13.49	24/09/1991		775
-B000003TAP	August and Everything After	Counting Crows	13.99	14/09/1993		552
-B0000041XX	Carreras Domingo Pavarotti ~ the three tenor	Francesco Cilea	16.49			1889
-B0000042H4	Wagner - Der Ring des Nibelungen (Ring Cycle) / Si	Richard Wagner	163.99			10982
-B0000046NK	First Issue-Dinah Washington S	Dinah Washington	22.98	22/06/1993		31853
-B00000470C	Irving Berlin Songbook	Fred Astaire	11.98			27155
-B0000047EG	Ella Fitzgerald Sings The Cole Porter Songbook	Cole Porter (Tribute)	30.49			729
-B000004CXU	Handel - Messiah / Nelson Kirkby Watkinson	George Frideric Handel	30.99			13310
-B000005J56	Buena Vista Social Club	Ry Cooder	13.49	16/09/1997	Wea/Atlantic/Nonesuch	285
-B000005YZM	Odessey & Oracle30th Anniversary Edition [IMPORT]	The Zombies	14.99		Big Beat UK	1970
-B0000060NA	Songs in the Key of Life	Stevie Wonder		28/09/1976	Uni/Motown	2047
-B00000638D	N Sync	'N Sync	14.99	24/03/1998	Rca	6590
-B000006NZV	Version 2.0	Garbage	14.99	12/05/1998	Almo Sounds	2482
-B000006OBP	September of My Years [ORIGINAL RECORDING REMASTER	Frank Sinatra	11.98			4457
-B000006OHD	In the Wee Small Hours [ORIGINAL RECORDING REMASTE	Frank Sinatra	13.99		Capitol	723
-B000006OHF	Frank Sinatra Sings for Only the Lonely [ORIGINAL 	Frank Sinatra	14.99		Capitol	1963
-B000006OHJ	Greatest HitsKing of Cool	Dean Martin	13.49	02/06/1998	Capitol	445
-B000006OJ7	Endlessly--The Best Of Brook Benton	Brook Benton	14.99	14/07/1998	Rhino Records	15408
-B000006ONF	Les MiserablesOriginal London Cast Recording [CAST	Alain Boublil	31.49		Loud Records	1749
-B000007OWW	The Best of Tom Jones [Polygram]	Tom Jones	13.99	16/06/1998		1337
-B000007Q8H	The Best Of James	James	14.99	30/06/1998		9372
-B0000087QO	Parallel Lines	Blondie			Chrys	7421
-B000008O4G	The Hits	Garth Brooks			Emd/Capitol	1151
-B00000ADG2	The Miseducation Of Lauryn Hill	Lauryn Hill	13.98	25/08/1998	Sony	1834
-B00000AEV0	A Swingin' Affair! [ORIGINAL RECORDING REMASTERED]	Frank Sinatra	14.99		Capitol	4428
-B00000AF99	Best Of	House Of Love (London)	14.99	01/09/1998		20646
-B00000AFEZ	Sarah Vaughan Sings George Gershwin	Sarah Vaughan	33.98			34922
-B00000AFFF	Painted from Memory [US]	Elvis Costello	14.99	29/09/1998		2264
-B00000AFQT	MozartRequiem / Davis (Penguin Music Classics Seri	Wolfgang Amadeus Mozart	11.98			6243
-B00000AG8K	Dizzy up the Girl	Goo Goo Dolls	13.99	22/09/1998		1575
-B00000DCHF	Nylon Curtain [ORIGINAL RECORDING REMASTERED]	Billy Joel	9.98		Sony	14090
-B00000DCHI	Greatest Hits Vol. 1-2 [ORIGINAL RECORDING REMASTE	Billy Joel	25.49		Sony	784
-B00000DCI5	The Best of Miss Peggy Lee	Peggy Lee	14.99	20/10/1998	Capitol	3380
-B00000DFTD	FanMail [EXPLICIT LYRICS]	TLC	14.99	23/02/1999	La Face	10660
-B00000DMJG	Double Live [LIVE] [BOX SET]	Garth Brooks	24.49	17/11/1998	Capitol	3073
-B00000F1D3	Believe	Cher	13.99	10/11/1998		1573
-B00000G1IL	...Baby One More Time [ENHANCED CD]	Britney Spears	14.99	12/01/1999	Jive	3735
-B00000HZEQ	Dusty in Memphis [Deluxe Edition] [EXTRA TRACKS]	Dusty Springfield	14.99		Rhino Records	1054
-B00000IOOE	Millennium	Backstreet Boys	14.99	18/05/1999	Jive	3612
-B00000IOSU	Mirrorball [LIVE]	Sarah McLachlan	13.99	15/06/1999	Arista	300
-B00000IQMT	Star Wars Episode IThe Phantom Menace - Original M	John Williams	13.98	04/05/1999	Sony	6974
-B00000IWQV	Darlings of Wapping Wharf Launderette	The Small Faces	14.99			13095
-B00000IX6H	Ricky Martin [US 1999]	Ricky Martin	13.98	11/05/1999	Sony	4520
-B00000J2PH	Tapestry [ORIGINAL RECORDING REMASTERED] [EXTRA TR	Carole King	11.98		Sony	157
-B00000J7J4	Supernatural	Santana	13.28	15/06/1999	Bmg/Arista	336
-B00000JJQK	Pet Sounds [IMPORT] [ORIGINAL RECORDING REMASTERED	The Beach Boys			Emi O	628
-B00000K4ES	Yellow Submarine [ORIGINAL RECORDING REMASTERED]	The Beatles	14.99	14/09/1999	Capitol	2025
-B00001R3GI	Exile On Main Street [Limited Edition] [ORIGINAL R	The Rolling Stones			Emd/Virgin	4745
-B00001R3O9	Fox Sports Presents Game Time	Various Artists - Pop		28/09/1999	Emd/Priority	12603
-B00002MZ41	The Best of Simon & Garfunkel	Simon & Garfunkel	13.49	16/11/1999	Sony	236
-B00004NRTD	Equally Cursed & Blessed	Catatonia	17.98	28/03/2000	Atlantic	13646
-B00004R84V	The Greatest Hits	Whitney Houston	22.99	16/05/2000	Arista	869
-B00004SBGD	The Man Who [EXTRA TRACKS]	Travis	11.98	04/04/2000	Sony	1598
+B0000009VO	The Very Best Of Elvis Costello And The Attraction	Elvis Costello	\N	1994-10-25	Ryko	1465
+B000000OU0	Hell Freezes Over	Eagles	13.99	1994-11-08	\N	513
+B000000WA4	Mellon Collie and the Infinite Sadness	Smashing Pumpkins	21.99	1995-10-24	\N	2332
+B000000WDA	Blur	Blur	11.98	1997-03-11	\N	17154
+B000000WF0	Urban Hymns	The Verve	13.99	1997-09-30	\N	1855
+B0000013G5	Toni Braxton	Toni Braxton	13.98	1993-07-13	La Face	6677
+B00000161Y	Romanza (Italian/Spanish Language Edition)	Andrea Bocelli	14.99	1997-12-09	\N	7090
+B000001DQI	Goodbye Yellow Brick Road [ORIGINAL RECORDING REMA	Elton John	13.99	\N	\N	673
+B000001DTM	Achtung Baby	U2	13.99	1991-11-19	\N	396
+B000001DVP	Elton John - Greatest Hits	Elton John	11.98	\N	\N	427
+B000001DZO	GoldGreatest Hits	Abba	13.49	1993-08-09	\N	97
+B000001E8P	Different Class	Pulp	14.99	1995-10-30	\N	6389
+B000001EW3	Come on Over	Shania Twain	13.99	1997-11-04	\N	440
+B000001FDV	Saturday Night FeverThe Original Movie Sound Track	Bee Gees	14.99	\N	\N	162
+B000001FGW	Cake	Trash Can Sinatras	14.98	1990-11-06	\N	11634
+B000001FLC	The Phantom Of The Opera (1986 Original London Cas	The Phantom Of The Opera (Related Recordings)	\N	1987-07-07	Uni/Mercury	557
+B000001FS3	Joshua Tree	U2	13.49	\N	\N	601
+B000001FY9	Legend	Bob Marley	13.99	1984-05-08	\N	1799
+B000001GHL	Ludwig van BeethovenSymphonies Nos. 3 & 9/Overture	Ludwig van Beethoven	16.49	\N	\N	2150
+B000001GPX	BeethovenSymphonien Nos. 5 & 7 / Kleiber, Vienna P	Ludwig van Beethoven	11.98	\N	\N	375
+B000001Y5Z	The Downward Spiral [EXPLICIT LYRICS]	Nine Inch Nails	14.99	1994-03-08	\N	4511
+B0000024RJ	I Left My Heart in San Francisco	Tony Bennett	9.98	\N	Sony	10664
+B0000024SI	Highway 61 Revisited	Bob Dylan	11.98	\N	Sony	887
+B0000024SQ	The Movie Song Album	Tony Bennett	9.98	\N	Sony	35565
+B0000024V3	Barbra Streisand - Greatest Hits	Barbara Streisand	14.99	\N	Sony	22247
+B00000253N	Blood on the Tracks	Bob Dylan	11.98	1975-01-17	Sony	582
+B00000255F	Born to Run	Bruce Springsteen	13.98	1975-08-25	Sony	521
+B000002564	Silk Degrees	Boz Scaggs	\N	\N	Sony/Columbia	2035
+B0000025BL	Bat Out of Hell	Meat Loaf	\N	\N	Sony/Epic	1251
+B0000025FN	Live at Budokan [LIVE]	Cheap Trick	\N	\N	Sony	21487
+B0000025HO	ELO's Greatest Hits	E.L.O.	11.98	\N	Sony	3198
+B0000025HU	London Calling	The Clash	\N	1979-12-14	Sony	4626
+B0000025RI	Thriller	Michael Jackson	\N	\N	Sony/Columbia	708
+B0000025UW	Born in the U.S.A.	Bruce Springsteen	13.49	1984-06-04	Sony	780
+B0000025VL	ClassicsThe Early Years	Neil Diamond	11.98	\N	Sony	9451
+B00000265P	16 Most Requested Songs	Johnny Mathis	11.98	\N	Sony	2152
+B0000026CH	Faith	George Michael	13.98	1987-01-01	Sony	1449
+B0000026V1	BasherThe Best of Nick Lowe	Nick Lowe	11.98	\N	Sony	10201
+B0000026W1	Greatest Hits...and More	Barbara Streisand	14.99	1989-10-03	Sony	4446
+B0000027RL	Ten	Pearl Jam	13.98	1991-08-27	Sony	811
+B0000028TU	Gloria Estefan - Greatest Hits	Gloria Estefan	14.99	1992-11-03	Sony	3956
+B00000294L	Suede	London Suede	11.98	1993-04-06	Sony	16523
+B0000029LG	HIStoryPast, Present and Future, Book 1	Michael Jackson	29.49	1995-06-20	Sony	1447
+B0000029YC	TitanicMusic from the Motion Picture (1997) [SOUND	Celine Dion	13.98	1997-11-18	Sony	4899
+B000002ADT	Kind of Blue	Wynton Kelly	11.98	\N	Sony	180
+B000002AL7	Forty Years-Artistry of Tony B	Tony Bennett	35.99	\N	Sony	10749
+B000002BBY	(What's The Story) Morning Glory?	Oasis	13.98	1995-10-03	Sony	777
+B000002BHE	Falling into You	Celine Dion	13.98	1996-03-12	Sony	1503
+B000002BQK	Butterfly	Mariah Carey	13.28	1997-09-16	Sony	18210
+B000002BZ0	Wide Open Spaces	Dixie Chicks	13.98	1998-01-27	Sony	88
+B000002C4J	Let's Talk About Love [ENHANCED CD]	Celine Dion	13.98	1997-11-18	Sony	5097
+B000002G3U	Every Breath You TakeThe Classics	The Police	13.99	1995-09-12	\N	1058
+B000002GE7	Singles 45's and Under	Squeeze	11.98	\N	\N	4042
+B000002GVO	Hotel California	Eagles	13.99	\N	\N	1500
+B000002GVS	Eagles - Their Greatest Hits 1971-1975	Eagles	13.49	\N	\N	1443
+B000002H33	Master of Puppets	Metallica	13.99	\N	\N	744
+B000002H97	Metallica	Metallica	13.99	1991-08-12	\N	836
+B000002I25	The Doors	The Doors	14.99	\N	\N	2702
+B000002I4U	The Genius of Ray Charles	Ray Charles	11.98	\N	Atlantic	14200
+B000002IKH	50 by Bobby Short	Bobby Short and his Orchestra	\N	\N	Atlantic	23573
+B000002IT2	Little Earthquakes	Tori Amos	13.99	1992-02-25	Atlantic	1352
+B000002IVS	Greatest Hits-Experience the Divine	Bette Midler	14.99	1993-06-22	Atlantic	2181
+B000002IZ1	Amplified Heart	Everything But the Girl	13.98	1994-07-19	Atlantic	3329
+B000002J09	Led Zeppelin IV [ORIGINAL RECORDING REMASTERED]	Led Zeppelin	13.49	1971-11-08	Atlantic	430
+B000002JOT	Mack the Knife	Bobby Darin	11.98	1991-11-12	Atlantic	5329
+B000002KBX	Sail Away	Randy Newman	\N	\N	\N	2890
+B000002KGT	Rumours	Fleetwood Mac	13.99	1977-02-04	\N	631
+B000002KHF	Moondance	Van Morrison	11.98	\N	\N	582
+B000002L68	"Music from the Motion Picture ""Purple Rain"""	Prince	11.98	\N	\N	2273
+B000002L9J	The Queen is Dead	The Smiths	14.99	\N	\N	1437
+B000002LD7	The Singles	The Pretenders	14.99	1987-11-17	\N	5998
+B000002LND	The Immaculate Collection	Madonna	13.49	1990-11-13	\N	1204
+B000002LRR	Watermark	Enya	13.49	\N	\N	263
+B000002LSP	Ing..nue	K. D. Lang	13.98	1992-03-17	\N	3566
+B000002MFE	Unplugged [LIVE]	Eric Clapton	13.99	1992-08-25	\N	953
+B000002MG1	Automatic for the People	R.E.M.	13.99	1992-10-06	\N	1205
+B000002MH7	San Francisco Days	Chris Isaak	11.98	1993-04-13	\N	2990
+B000002MY3	Jagged Little Pill	Alanis Morissette	13.99	1995-06-13	\N	870
+B000002NBY	Graceland	Paul Simon	13.49	\N	\N	314
+B000002NJS	Ray of Light	Madonna	14.99	1998-03-03	\N	2566
+B000002O72	Cloudcuckooland	Lightning Seeds	11.98	1990-04-03	Mca	21189
+B000002OPK	Bing! His Legendary Years, 1931 to 1957 [BOX SET]	Bing Crosby	59.98	1993-09-28	Mca	28372
+B000002OX5	The Who Sell Out [ORIGINAL RECORDING REMASTERED] [	The Who	11.98	\N	Mca	4874
+B000002P5Y	Are You Experienced?	Jimi Hendrix	13.99	\N	Mca	756
+B000002PEF	The Greatest Hits [MCA]	Ink Spots	\N	1989-11-21	Uni/Mca	6695
+B000002TRT	The Greatest Hits [Capitol]	Nat King Cole	13.99	1994-10-18	Capitol	1055
+B000002TU5	The Best...So Far	Anne Murray	13.99	1994-11-29	Capitol	1295
+B000002U82	Dark Side of the Moon	Pink Floyd	13.49	1973-03-24	Capitol	194
+B000002U98	Greatest Hits 1974-1978	Steve Miller Band	11.98	\N	Capitol	1751
+B000002UAO	Rubber Soul [UK]	The Beatles	13.49	1965-12-03	Capitol	343
+B000002UAR	Revolver [UK]	The Beatles	13.49	1966-08-05	Capitol	242
+B000002UAU	Sgt. Pepper's Lonely Hearts Club Band	The Beatles	13.49	1967-06-01	Capitol	218
+B000002UAX	The Beatles (The White Album)	The Beatles	27.99	\N	Capitol	409
+B000002UB3	Abbey Road	The Beatles	13.49	1969-09-26	Capitol	158
+B000002UB6	Let It Be [SOUNDTRACK]	The Beatles	13.99	1970-05-08	Capitol	1157
+B000002UJO	In It for the Money	Supergrass	16.98	1997-05-06	Capitol	30220
+B000002UJQ	OK Computer	Radiohead	13.49	1997-07-01	Capitol	755
+B000002ULQ	Sevens	Garth Brooks	14.99	1997-11-25	Capitol	20529
+B000002USX	Judy at Carnegie Hall [LIVE]	Judy Garland	\N	\N	Emd/Capitol	3561
+B000002UWM	The Capitol Years	Frank Sinatra	34.99	1990-12-18	Capitol	2649
+B000002VI0	Eurythmics - Greatest Hits	Eurythmics	14.99	1991-05-24	Arista	2318
+B000002VN7	Fumbling Towards Ecstasy	Sarah McLachlan	13.98	1994-02-15	Arista	853
+B000002VT6	Surfacing [ENHANCED CD]	Sarah McLachlan	13.49	1997-07-15	Arista	183
+B000002W6Q	Nilsson Schmilsson	Harry Nilsson	14.99	\N	Rca	3480
+B000002WC1	Stardust & Much More	Hoagy Carmichael	\N	\N	Bmg/Rca	8277
+B000002WD4	All-Time Greatest Hits	Harry Nilsson	14.99	1989-07-18	Rca	2306
+B000002WFX	Top Ten Hits	Elvis Presley	\N	\N	Rca	25121
+B000002WFY	50 Worldwide Gold HitsVolume 1, Parts 1 & 2	Elvis Presley	\N	\N	Rca	8710
+B000002WQS	Under the Table & Dreaming	Dave Matthews Band	13.49	1994-09-27	Rca	486
+B000002WYT	Crash	Dave Matthews Band	13.49	1996-04-30	Rca	286
+B000002ZDA	Glen Campbell Collection (1962-1989)Gentle on My M	Glen Campbell	24.99	1997-02-18	\N	10858
+B0000032AP	Greatest Hits, Vol. 1	The Kinks	\N	1989-03-28	Rhino Records	2762
+B0000032WJ	The Dionne Warwick CollectionHer All-Time Greatest	Dionne Warwick	16.99	\N	Rhino Records	2211
+B0000032WL	Something/Anything?	Todd Rundgren	16.99	\N	Rhino Records	3886
+B00000334M	For The Lonely18 Greatest Hits	Roy Orbison	17.98	\N	Rhino Records	34687
+B00000337M	The Mel TormCollection [BOX SET]	Mel Torme	53.99	1996-06-04	Rhino Records	28091
+B000003G8E	Star Wars, A New HopeThe Original Motion Picture S	The Star Wars Trilogy (1997 Release)	34.98	\N	Rca	19685
+B000003N7G	A Love Supreme	John Coltrane	13.99	1964-12-09	Grp Records	442
+B000003TA4	Nevermind	Nirvana	13.49	1991-09-24	\N	775
+B000003TAP	August and Everything After	Counting Crows	13.99	1993-09-14	\N	552
+B0000041XX	Carreras Domingo Pavarotti ~ the three tenor	Francesco Cilea	16.49	\N	\N	1889
+B0000042H4	Wagner - Der Ring des Nibelungen (Ring Cycle) / Si	Richard Wagner	163.99	\N	\N	10982
+B0000046NK	First Issue-Dinah Washington S	Dinah Washington	22.98	1993-06-22	\N	31853
+B00000470C	Irving Berlin Songbook	Fred Astaire	11.98	\N	\N	27155
+B0000047EG	Ella Fitzgerald Sings The Cole Porter Songbook	Cole Porter (Tribute)	30.49	\N	\N	729
+B000004CXU	Handel - Messiah / Nelson Kirkby Watkinson	George Frideric Handel	30.99	\N	\N	13310
+B000005J56	Buena Vista Social Club	Ry Cooder	13.49	1997-09-16	Wea/Atlantic/Nonesuch	285
+B000005YZM	Odessey & Oracle30th Anniversary Edition [IMPORT]	The Zombies	14.99	\N	Big Beat UK	1970
+B0000060NA	Songs in the Key of Life	Stevie Wonder	\N	1976-09-28	Uni/Motown	2047
+B00000638D	N Sync	'N Sync	14.99	1998-03-24	Rca	6590
+B000006NZV	Version 2.0	Garbage	14.99	1998-05-12	Almo Sounds	2482
+B000006OBP	September of My Years [ORIGINAL RECORDING REMASTER	Frank Sinatra	11.98	\N	\N	4457
+B000006OHD	In the Wee Small Hours [ORIGINAL RECORDING REMASTE	Frank Sinatra	13.99	\N	Capitol	723
+B000006OHF	Frank Sinatra Sings for Only the Lonely [ORIGINAL 	Frank Sinatra	14.99	\N	Capitol	1963
+B000006OHJ	Greatest HitsKing of Cool	Dean Martin	13.49	1998-06-02	Capitol	445
+B000006OJ7	Endlessly--The Best Of Brook Benton	Brook Benton	14.99	1998-07-14	Rhino Records	15408
+B000006ONF	Les MiserablesOriginal London Cast Recording [CAST	Alain Boublil	31.49	\N	Loud Records	1749
+B000007OWW	The Best of Tom Jones [Polygram]	Tom Jones	13.99	1998-06-16	\N	1337
+B000007Q8H	The Best Of James	James	14.99	1998-06-30	\N	9372
+B0000087QO	Parallel Lines	Blondie	\N	\N	Chrys	7421
+B000008O4G	The Hits	Garth Brooks	\N	\N	Emd/Capitol	1151
+B00000ADG2	The Miseducation Of Lauryn Hill	Lauryn Hill	13.98	1998-08-25	Sony	1834
+B00000AEV0	A Swingin' Affair! [ORIGINAL RECORDING REMASTERED]	Frank Sinatra	14.99	\N	Capitol	4428
+B00000AF99	Best Of	House Of Love (London)	14.99	1998-09-01	\N	20646
+B00000AFEZ	Sarah Vaughan Sings George Gershwin	Sarah Vaughan	33.98	\N	\N	34922
+B00000AFFF	Painted from Memory [US]	Elvis Costello	14.99	1998-09-29	\N	2264
+B00000AFQT	MozartRequiem / Davis (Penguin Music Classics Seri	Wolfgang Amadeus Mozart	11.98	\N	\N	6243
+B00000AG8K	Dizzy up the Girl	Goo Goo Dolls	13.99	1998-09-22	\N	1575
+B00000DCHF	Nylon Curtain [ORIGINAL RECORDING REMASTERED]	Billy Joel	9.98	\N	Sony	14090
+B00000DCHI	Greatest Hits Vol. 1-2 [ORIGINAL RECORDING REMASTE	Billy Joel	25.49	\N	Sony	784
+B00000DCI5	The Best of Miss Peggy Lee	Peggy Lee	14.99	1998-10-20	Capitol	3380
+B00000DFTD	FanMail [EXPLICIT LYRICS]	TLC	14.99	1999-02-23	La Face	10660
+B00000DMJG	Double Live [LIVE] [BOX SET]	Garth Brooks	24.49	1998-11-17	Capitol	3073
+B00000F1D3	Believe	Cher	13.99	1998-11-10	\N	1573
+B00000G1IL	...Baby One More Time [ENHANCED CD]	Britney Spears	14.99	1999-01-12	Jive	3735
+B00000HZEQ	Dusty in Memphis [Deluxe Edition] [EXTRA TRACKS]	Dusty Springfield	14.99	\N	Rhino Records	1054
+B00000IOOE	Millennium	Backstreet Boys	14.99	1999-05-18	Jive	3612
+B00000IOSU	Mirrorball [LIVE]	Sarah McLachlan	13.99	1999-06-15	Arista	300
+B00000IQMT	Star Wars Episode IThe Phantom Menace - Original M	John Williams	13.98	1999-05-04	Sony	6974
+B00000IWQV	Darlings of Wapping Wharf Launderette	The Small Faces	14.99	\N	\N	13095
+B00000IX6H	Ricky Martin [US 1999]	Ricky Martin	13.98	1999-05-11	Sony	4520
+B00000J2PH	Tapestry [ORIGINAL RECORDING REMASTERED] [EXTRA TR	Carole King	11.98	\N	Sony	157
+B00000J7J4	Supernatural	Santana	13.28	1999-06-15	Bmg/Arista	336
+B00000JJQK	Pet Sounds [IMPORT] [ORIGINAL RECORDING REMASTERED	The Beach Boys	\N	\N	Emi O	628
+B00000K4ES	Yellow Submarine [ORIGINAL RECORDING REMASTERED]	The Beatles	14.99	1999-09-14	Capitol	2025
+B00001R3GI	Exile On Main Street [Limited Edition] [ORIGINAL R	The Rolling Stones	\N	\N	Emd/Virgin	4745
+B00001R3O9	Fox Sports Presents Game Time	Various Artists - Pop	\N	1999-09-28	Emd/Priority	12603
+B00002MZ41	The Best of Simon & Garfunkel	Simon & Garfunkel	13.49	1999-11-16	Sony	236
+B00004NRTD	Equally Cursed & Blessed	Catatonia	17.98	2000-03-28	Atlantic	13646
+B00004R84V	The Greatest Hits	Whitney Houston	22.99	2000-05-16	Arista	869
+B00004SBGD	The Man Who [EXTRA TRACKS]	Travis	11.98	2000-04-04	Sony	1598
 \.
 
 COPY castings (movie_id, actor_id, ord) FROM stdin;

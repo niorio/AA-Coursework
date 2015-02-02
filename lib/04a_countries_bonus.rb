@@ -59,12 +59,14 @@ def large_neighbors
     name, continent
   FROM
     countries
-  WHERE
+  GROUP BY
+    continent
+  HAVING
     population >= 3 * (
       SELECT
         MAX(population)
       FROM
-        countries
+        countries AS second
       WHERE
         population NOT IN (
           SELECT
@@ -74,11 +76,38 @@ def large_neighbors
           GROUP BY
             continent
             )
+          )
+
+        ;
+
+
+    SELECT
+      name, continent
+    FROM
+      (
+      SELECT
+        MAX(population)
+      FROM
+        countries
+      WHERE
+        population NOT IN (
+        SELECT
+          MAX(population)
+        FROM
+          countries
         GROUP BY
           continent
-          )
-    GROUP BY
-      name, continent;
+        )) AS second
+        JOIN (
+        SELECT
+          MAX(population)
+        FROM
+          countries
+        GROUP BY
+          continent) AS first ON name
+    WHERE first.population >= second.population
+
+
 
 
 
