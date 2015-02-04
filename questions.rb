@@ -19,25 +19,32 @@ end
 class TableClass
 
   def save
-    instance_variables = self.instance_variables.map{|var| self.instance_variable_get(var)}
-    variables_no_sym = self.instance_variables.map{|var| var.to_s[1..-1]}
-    questions_arr = Array.new(variables_no_sym.length-2){"?"}
+
+    instance_variables = self.instance_variables.map do |var|
+      self.instance_variable_get(var)
+    end
+    instance_variables = instance_variables[1..-2]
+
+    ivar_names = self.instance_variables.map{ |var| var.to_s[1..-1] }
+    ivar_names = ivar_names[1..-2]
+
+    question_string = (Array.new(ivar_names.length){"?"}).join(", ")
 
     if @id.nil?
-      QuestionsDatabase.instance.execute(<<-SQL, instance_variables[1..-2])
+      QuestionsDatabase.instance.execute(<<-SQL, instance_variables)
         INSERT INTO
-          #{@table} (#{variables_no_sym[1..-2].join(', ')})
+          #{@table} (#{ivar_names.join(', ')})
         VALUES
-          (#{questions_arr.join(", ")})
+          (#{question_string})
       SQL
 
       @id = QuestionsDatabase.instance.last_insert_row_id
     else
-      QuestionsDatabase.instance.execute(<<-SQL, instance_variables[1..-2], instance_variables[0])
+      QuestionsDatabase.instance.execute(<<-SQL, instance_variables, @id)
         UPDATE
           #{@table}
         SET
-          #{variables_no_sym[1..-2].join(' = ?, ')} = ?
+          #{ivar_names.join(' = ?, ')} = ?
         WHERE
           id = ?
       SQL
