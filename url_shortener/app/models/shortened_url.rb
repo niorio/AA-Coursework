@@ -22,12 +22,35 @@ class ShortenedUrl < ActiveRecord::Base
 
   end
 
+  def num_clicks
+    visits.count
+  end
+
+  def num_uniques
+    visits.select(:user_id).distinct.count
+  end
+
+  def num_recent_uniques
+    visits.select(:user_id).distinct.where(:created_at => 10.minutes.ago..Time.now).count
+  end
+
   belongs_to(
     :user,
     :class_name => "User",
     :foreign_key => :user_id,
     :primary_key => :id
   )
+
+  has_many(
+    :visits,
+    :class_name => "Visit",
+    :foreign_key => :short_url,
+    :primary_key => :short_url
+  )
+
+  has_many :visitors, :through => :visits, :source => :visitor
+
+
 
 
 end
