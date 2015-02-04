@@ -1,8 +1,9 @@
 class ShortenedUrl < ActiveRecord::Base
 
   validate :short_url, presence: true, uniqueness: true
-  validate :long_url, presence: true, uniqueness: true
+  validate :long_url, presence: true, length: { maximum: 500 }
   validate :user_id, presence: true
+  validate :long_url_cannot_be_submit_more_than_five_times_in_one_minute
 
   def self.random_code
 
@@ -44,8 +45,8 @@ class ShortenedUrl < ActiveRecord::Base
   has_many(
     :visits,
     :class_name => "Visit",
-    :foreign_key => :short_url,
-    :primary_key => :short_url
+    :foreign_key => :short_url_id,
+    :primary_key => :id
   )
 
   has_many(
@@ -55,7 +56,11 @@ class ShortenedUrl < ActiveRecord::Base
     :source => :visitor
     )
 
-
-
+  private
+  def long_url_cannot_be_submit_more_than_five_times_in_one_minute
+    if user.submitted_urls.where(:created_at => 1.minute.ago..Time.now).count >= 5
+      errors[:user] << "can't submit that many URLs in one minute"
+    end
+  end
 
 end
