@@ -21,3 +21,9 @@ visit5 = Visit.create!({short_url_id: test1.id, user_id:2})
 visit6 = Visit.create!({short_url_id: test1.id, user_id:3})
 visit7 = Visit.create!({short_url_id: test2.id, user_id:2})
 vitit8 = Visit.create!({short_url_id: test2.id, user_id:2})
+
+TagTopic.create!([{tag: 'Sports1'}, {tag: 'Movies2'}, {tag: 'Music3'}, {tag: 'News4'}, {tag: 'Food5'}])
+
+
+Tagging.create!([{short_url_id: 1, tag_id:1},{short_url_id: 2, tag_id:2},{short_url_id: 3, tag_id:3}])
+Tagging.create!({short_url_id: 1, tag_id:2})

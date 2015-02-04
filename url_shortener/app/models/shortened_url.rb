@@ -56,6 +56,19 @@ class ShortenedUrl < ActiveRecord::Base
     :source => :visitor
     )
 
+  has_many(
+    :taggings,
+    :class_name => "Tagging",
+    :foreign_key => :short_url_id,
+    :primary_key => :id
+  )
+
+  has_many(
+    :tags,
+    :through => :taggings,
+    :source => :tag_topic
+  )
+
   private
   def long_url_cannot_be_submit_more_than_five_times_in_one_minute
     if user.submitted_urls.where(:created_at => 1.minute.ago..Time.now).count >= 5
