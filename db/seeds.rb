@@ -20,4 +20,4 @@ AnswerChoice.create({answer_text: "Red", question_id: 1})
 AnswerChoice.create({answer_text: "Green", question_id: 1})
 
 
-Response.create({user_id: 2, question_id: 1, answer_choice_id: 2})
+Response.create({user_id: 2, answer_choice_id: 2})

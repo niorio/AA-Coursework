@@ -1,5 +1,5 @@
 class Response < ActiveRecord::Base
-  validates :user_id, :question_id, :answer_choice_id, :presence => true
+  validates :user_id, :answer_choice_id, :presence => true
   validate :respondent_has_not_already_answered_question
   validate :author_cannot_respond_to_own_poll
 
