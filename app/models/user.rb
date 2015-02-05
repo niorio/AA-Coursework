@@ -1,6 +1,42 @@
 class User < ActiveRecord::Base
   validate :user_name, :presence => true, :uniqueness => true
 
+  def completed_polls
+
+    Poll.find_by_sql(
+    [
+      "SELECT
+        polls.*, COUNT(questions.*) AS question_count, COUNT(my_responses.*) AS response_count
+      FROM
+        polls
+      JOIN
+        questions ON questions.poll_id = polls.id
+      LEFT OUTER JOIN
+        (
+          SELECT
+            *
+          FROM
+            responses
+          WHERE
+            responses.user_id = ?
+        ) AS my_responses ON my_responses.question_id = questions.id
+      GROUP BY
+        polls.id
+      HAVING
+        COUNT(questions.*) = COUNT(my_responses.*)", self.id])
+
+
+    #self.questions.poll
+
+
+
+
+  end
+
+
+
+
+
   has_many(
     :authored_polls,
     :class_name => "Poll",
