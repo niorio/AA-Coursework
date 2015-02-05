@@ -24,13 +24,21 @@ class User < ActiveRecord::Base
       #   polls.id
       # HAVING
       #   COUNT(questions.*) = COUNT(my_responses.*)", self.id])
+    #
+    # Poll.find(:all,
+    #           :joins => "JOIN questions ON questions.poll_id = polls.id
+    #                     LEFT OUTER JOIN responses ON responses.question_id = questions.id",
+    #           :conditions =>"responses.user_id = #{id}",
+    #           :group => "polls.id",
+    #           :having=> "COUNT(questions.*) = COUNT(responses.*)")
 
-    Poll.find(:all,
-              :joins => "JOIN questions ON questions.poll_id = polls.id
-                        LEFT OUTER JOIN responses ON responses.question_id = questions.id",
-              :conditions =>"responses.user_id = #{id}",
-              :group => "polls.id",
-              :having=> "COUNT(questions.*) = COUNT(responses.*)")
+    Poll.all
+        .joins("JOIN questions ON questions.poll_id = polls.id
+                  LEFT OUTER JOIN responses ON responses.question_id = questions.id")
+        .where("responses.user_id = #{id}")
+        .group("polls.id")
+        .having("COUNT(questions.*) = COUNT(responses.*)")
+
 
 
 
