@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
   )
+  has_many :groups
+  
+  has_many :comments, :as => :commentable
 
   has_many :contact_shares
 

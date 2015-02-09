@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209190521) do
+ActiveRecord::Schema.define(version: 20150209203601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.text     "body",             null: false
+    t.integer  "commentable_id",   null: false
+    t.string   "commentable_type", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
 
   create_table "contact_shares", force: true do |t|
     t.integer  "contact_id", null: false
@@ -27,12 +38,32 @@ ActiveRecord::Schema.define(version: 20150209190521) do
   add_index "contact_shares", ["user_id"], name: "index_contact_shares_on_user_id", using: :btree
 
   create_table "contacts", force: true do |t|
-    t.string  "name",    null: false
-    t.string  "email",   null: false
-    t.integer "user_id", null: false
+    t.string  "name",                     null: false
+    t.string  "email",                    null: false
+    t.integer "user_id",                  null: false
+    t.boolean "favorite", default: false
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id", using: :btree
+
+  create_table "groupings", force: true do |t|
+    t.integer  "group_id",   null: false
+    t.integer  "contact_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groupings", ["contact_id"], name: "index_groupings_on_contact_id", using: :btree
+  add_index "groupings", ["group_id"], name: "index_groupings_on_group_id", using: :btree
+
+  create_table "groups", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at"

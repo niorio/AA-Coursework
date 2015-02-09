@@ -38,6 +38,12 @@ class UsersController < ApplicationController
     render json: user
   end
 
+  def favorite
+    @user = User.find(params[:user_id])
+    render json: @user.contacts.where(favorite: true)
+
+  end
+
   private
   def user_params
     params.require(:user).permit(:user_name)

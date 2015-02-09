@@ -4,4 +4,5 @@ class ContactShare < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   belongs_to :contact
 
+  has_many :comments, :as => :commentable 
 end
