@@ -13,11 +13,9 @@ module Associatable
 
       source_options = through_options.model_class.assoc_options[source_name]
 
-      through_object = through_options.model_class.find(self.send(through_options.foreign_key))
+      through_id = self.send(through_options.foreign_key)
 
-      source_id = through_object.send(source_options.foreign_key)
-      #debugger
-      results = DBConnection.execute(<<-SQL, source_id)
+      results = DBConnection.execute(<<-SQL, through_id)
 
         SELECT
         #{source_options.table_name}.*
