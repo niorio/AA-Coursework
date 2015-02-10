@@ -1,9 +1,11 @@
 <% action = @cat.id ? 'Update' : 'Create' %>
+<% url = @cat.id ? cat_url(@cat) : cats_url %>
 
 <h1><%= action %> Cat</h1>
-<form action="<%= cat_url(@cat) %>" method="post">
-  <%='<input type="hidden" name="_method" value="put">' if action == 'Update'%>
-
+<form action="<%= url %>" method="post">
+  <% if action == 'Update' %>
+     <input type='hidden' name='_method' value='put'>
+  <% end %>
 
 <label for="cat_name">Name:</label>
 <input type="text" name="cat[name]" value="<%=@cat.name%>" id="cat_name">
@@ -32,10 +34,9 @@
 <br>
 
 <label for="cat_description">Description:</label>
-<input type="textarea" name="cat[description]" id="cat_description"
-    value="<%=@cat.description%>"">
+<textarea name="cat[description]" id="cat_description"
+    value="<%=@cat.description%>"></textarea>
 <br>
 
-<!-- <%= render "form" %>
-<input type="submit"  value="Update">
-</form> -->
+<input type="submit"  value="<%= action %>">
+</form>

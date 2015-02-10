@@ -11,4 +11,45 @@
   </tr>
   <% end %>
 </table>
+
+<% rentals = @cat.cat_rental_requests %>
+
+<h2>Rentals</h2>
+<table>
+  <tr>
+  <td>
+    Rental Start Date
+  </td>
+  <td>
+    Rental End Date
+  </td>
+  <td>
+    Status
+  </td>
+  </tr>
+  <% rentals.each do |rental| %>
+  <tr>
+  <td>
+    <%= rental.start_date %>
+  </td>
+  <td>
+    <%= rental.end_date %>
+  </td>
+  <td>
+    <%= rental.status %>
+  </td>
+  <td>
+    <% if rental.status == "PENDING" %>
+      <form id="form_id" action="<%= approve_rental_url(@cat.id)%>" method="post">
+        <input type="submit" value="Approve">
+      </form>
+      <form id="form_id" action="<%= deny_rental_url(@cat.id)%>" method="post">
+        <input type="submit" name="some_name" value="Deny">
+      </form>
+    <% end %>
+  </td>
+  </tr>
+  <% end %>
+</table>
+
 <a href="<%= cats_url%>">All Cats</a>
