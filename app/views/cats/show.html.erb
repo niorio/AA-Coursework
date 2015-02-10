@@ -1,0 +1,14 @@
+<h1><%= @cat.name %></h1>
+<table>
+  <% @cat.attributes.each do |attr_name, value| %>
+  <tr>
+  <td>
+    <%= attr_name %>
+  </td>
+  <td>
+    <%= value %>
+  </td>
+  </tr>
+  <% end %>
+</table>
+<a href="<%= cats_url%>">All Cats</a>
