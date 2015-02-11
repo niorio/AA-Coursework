@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  validates :user_name, :password_digest, :session_token, :presence => true
+  validates :user_name, :password_digest, :presence => true
   validates :password , length: { minimum: 6, allow_nil: true }
-  validates :user_name, :session_token, uniqueness: true
-  after_initialize :ensure_session_token
+  validates :user_name, uniqueness: true
+
 
   has_many :cats
-
+  has_many :cat_rental_requests
+  has_many :session_tokens
 
   attr_accessor :password
   def self.generate_session_token
@@ -17,6 +18,14 @@ class User < ActiveRecord::Base
     self.save!
     self.session_token
   end
+
+  def create_session_token
+    token = self.class.generate_session_token
+    session_tokens.create!(session_token: token)
+    token
+  end
+
+
 
   def password=(password)
     @password = password
@@ -33,10 +42,10 @@ class User < ActiveRecord::Base
     user.is_password?(password) ? user : nil
   end
 
-  private
-  def ensure_session_token
-    self.session_token ||= self.class.generate_session_token
-  end
+  # private
+  # def ensure_session_token
+  #   session_tokens.any? || create_session_token
+  # end
 
 
 end

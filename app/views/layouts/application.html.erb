@@ -28,11 +28,16 @@
       <input type="hidden"
          name="authenticity_token"
          value="<%= form_authenticity_token %>">
-         
+
       <button>Sign Up</button>
     </form>
   <% end %>
 <%= yield %>
 
+<br><br><br>
+<% if signed_in? %>
+  <a href="<%= sessions_url%>">All Sessions</a>
+<% end %>
+</form>
 </body>
 </html>
