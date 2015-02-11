@@ -4,7 +4,9 @@
   <% @cats.each do |cat| %>
   <li>
     <a href="<%=cat_url(cat.id)%>"><%= cat.name %></a>
-    <a href="<%=edit_cat_url(cat.id)%>">Edit</a>
+    <% if current_user == cat.owner %>
+      <a href="<%=edit_cat_url(cat.id)%>">Edit</a>
+    <% end %>
   </li>
   <% end %>
 </ul>

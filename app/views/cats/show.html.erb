@@ -39,14 +39,24 @@
     <%= rental.status %>
   </td>
   <td>
-    <% if rental.status == "PENDING" %>
-      <form id="form_id" action="<%= approve_rental_url(@cat.id)%>" method="post">
-        <input type="submit" value="Approve">
-      </form>
-      <form id="form_id" action="<%= deny_rental_url(@cat.id)%>" method="post">
-        <input type="submit" name="some_name" value="Deny">
-      </form>
-    <% end %>
+    <% if current_user == @cat.owner %>
+      <% if rental.status == "PENDING" %>
+        <form id="form_id" action="<%= approve_rental_url(@cat.id)%>" method="post">
+          <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+          <input type="submit" value="Approve">
+        </form>
+        <form id="form_id" action="<%= deny_rental_url(@cat.id)%>" method="post">
+          <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+          <input type="submit" name="some_name" value="Deny">
+        </form>
+      <% end %>
+    <% end %>  
   </td>
   </tr>
   <% end %>
