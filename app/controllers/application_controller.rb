@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
     current_user.reset_session_token! if current_user
     session[:token] = nil
   end
+
+  def must_be_signed_in
+    redirect_to new_session_url unless logged_in?
+  end
 end

@@ -1,0 +1,10 @@
+<h1><%= @album.title %></h1>
+<% @album.tracks.each do |track| %>
+  <a href="<%=track_url(track.id)%>"><%= track.title %></a><br>
+<% end %>
+
+<br><br>
+<a href="<%=new_album_track_url(params[:id])%>">new track</a>
+
+<br><br>
+<%= delete_button(album_url(@album.id)) %>

@@ -5,6 +5,7 @@
 </head>
 <body>
   <% if logged_in? %>
+  signed in as <%= current_user.email %>
 
     <form action="<%=session_url%>" method="post">
       <%= auth_token %>
@@ -13,6 +14,7 @@
     </form>
 
   <%end%>
+  <br>
 
 <%= yield %>
 
