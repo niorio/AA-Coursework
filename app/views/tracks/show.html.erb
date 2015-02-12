@@ -1,4 +1,6 @@
 <h1><%= @track.title %></h1>
+<a href="<%=edit_track_url(@track.id)%>">edit</a><br><br>
+
 Album:
 <a href="<%= album_url(@track.album_id)%>"><%=@track.album.title%></a>
 <br>

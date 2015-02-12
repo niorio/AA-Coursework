@@ -1,6 +1,13 @@
 <h1><%= @album.title %></h1>
-<% @album.tracks.each do |track| %>
-  <a href="<%=track_url(track.id)%>"><%= track.title %></a><br>
+
+<a href="<%=edit_album_url(@album.id)%>">edit</a>
+<br><br>
+
+by <a href="<%=band_url(@album.band_id)%>"><%=@album.band.name%></a><br><br>
+
+
+<% @album.tracks.each_with_index do |track, i| %>
+  <%= "#{i+1}. " %><a href="<%=track_url(track.id)%>"><%= track.title %></a><br>
 <% end %>
 
 <br><br>
