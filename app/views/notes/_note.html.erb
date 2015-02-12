@@ -1,0 +1,4 @@
+<% @track.notes.each do |note| %>
+  <%= note.content %><br>
+  by <%=note.user.email  %>
+<% end %>

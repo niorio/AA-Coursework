@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  has_many :notes
+
 
   def reset_session_token!
     self.session_token = self.class.generate_session_token
