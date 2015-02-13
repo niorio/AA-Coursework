@@ -1,0 +1,19 @@
+<h1>Edit Comment</h1>
+
+<ul>
+  <% @comment.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+
+<form action="<%= comment_url(@comment) %>" method="post">
+  <%= embed_token %>
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="comment[post_id]" value="<%= @comment.post_id %>">
+  <label for="comment_body">Comment:</label>
+  <textarea id="comment_body" name="comment[body]" rows="8" cols="40"><%= @comment.body %></textarea>
+  <br>
+
+  <button name="submit">Update Comment</button>
+</form>

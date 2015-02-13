@@ -1,0 +1,14 @@
+<h1><%= @sub.title %></h1>
+
+<ul>
+
+  <% @sub.posts.each do |post| %>
+    <li><a href="<%= post.url || post_url(post) %>"> "<%= post.title %>"</a>
+    submitted by: <%= post.author_name %> <%= time_ago_in_words(post.created_at)  %> ago<br></li>
+    <a href="<%= post_url(post) %>"><%= post.comments.count %> replies</a>
+    <br>
+
+    <%= render 'votes/vote', type: 'post' %>
+  <% end %>
+
+</ul>

@@ -1,0 +1,14 @@
+<label>New Comment
+  <form action="<%= comments_url %>" method="post">
+    <%= embed_token %>
+
+    <input type="hidden" name="comment[parent_comment_id]" value="<%= parent_comment.id %>">
+    <input type="hidden" name="comment[post_id]" value="<%= parent_comment.post_id %>">
+    <label for="comment_body">Reply</label>
+    <br>
+    <textarea id="comment_body" name="comment[body]" rows="8" cols="40"></textarea>
+    <br>
+    <button name="submit">Post reply</button>
+
+  </form>
+</label>

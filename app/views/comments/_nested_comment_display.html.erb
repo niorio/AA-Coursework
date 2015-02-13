@@ -1,0 +1,10 @@
+<ul>
+  <% @all_comments.each do |parent_id, children| %>
+    <% next unless parent_id == comment.id %>
+
+    <% children.each do |child| %>
+      <li><%= render 'comments/comment_display', comment: child %><br></li>
+      <%= render 'comments/nested_comment_display', comment: child %>
+    <% end %>
+  <% end %>
+</ul>
