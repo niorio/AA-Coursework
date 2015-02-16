@@ -9,5 +9,9 @@ class Goal < ActiveRecord::Base
     self.completed
   end
 
+  def public?
+    self.public
+  end
+
 
 end

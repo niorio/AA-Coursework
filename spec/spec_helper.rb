@@ -113,3 +113,8 @@ def create_public_goal
   choose 'Public'
   click_button 'Create Goal'
 end
+
+def leave_comment
+  fill_in 'Comment', with: "excellent goal!"
+  click_button 'Leave Comment'
+end

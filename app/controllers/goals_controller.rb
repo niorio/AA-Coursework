@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :must_be_logged_in
+  before_action :must_have_permission, only: [:show, :edit, :update, :destroy]
 
   def index
     render :index
@@ -48,6 +49,14 @@ class GoalsController < ApplicationController
   private
   def goal_params
     params.require(:goal).permit(:body, :public, :completed)
+  end
+
+  def must_have_permission
+    @goal = Goal.find(params[:id])
+    unless @goal.user == current_user || goal.public?
+      redirect_to goals_url
+    end
+
   end
 
 end
