@@ -1,0 +1,21 @@
+<br><br>
+<%= @goal.body %><br>
+<%= @goal.public ? "public" : "private" %><br>
+<%= "Completed" if @goal.completed? %><br>
+<%= "created by #{@goal.user.username}" %><br><br>
+
+<% if @goal.user == current_user && !@goal.completed? %>
+  <form action="<%= goal_url(@goal) %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="goal[completed]" value="true">
+    <button name="submit">Mark as Completed</button>
+  </form>
+
+<% end %>
+
+
+
+<a href="<%= edit_goal_url(@goal) %>">Edit Goal</a><br>
+<%= button_to "Delete", goal_url(@goal), :method => :delete %><br>
+<%= link_to "Back to Goals", goals_url %><br>
