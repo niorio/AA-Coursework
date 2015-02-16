@@ -53,7 +53,7 @@ class GoalsController < ApplicationController
 
   def must_have_permission
     @goal = Goal.find(params[:id])
-    unless @goal.user == current_user || goal.public?
+    unless @goal.user == current_user || @goal.public?
       redirect_to goals_url
     end
 

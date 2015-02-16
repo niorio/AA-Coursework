@@ -14,7 +14,28 @@
 
 <% end %>
 
+<% @goal.comments.each do |comment| %>
+  <%= comment.body %>
+  <br>
+  <%= "by #{comment.author.username}" %>
+  <% if comment.author == current_user %>
+    <form action="<%= comment_url(comment) %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <%= auth_token %>
+      <button>Delete</button>
+    </form>
+  <% end %>
+  <br>
+<% end %>
 
+<form action="<%=goal_comments_url(@goal)%>" method="post">
+  <%= auth_token %>
+  <label>Comment
+    <textarea name="comment[body]" rows="8" cols="40"></textarea>
+  </label>
+  <br>
+  <button>Leave Comment</button>
+</form>
 
 <a href="<%= edit_goal_url(@goal) %>">Edit Goal</a><br>
 <%= button_to "Delete", goal_url(@goal), :method => :delete %><br>

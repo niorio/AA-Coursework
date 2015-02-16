@@ -1,4 +1,5 @@
 class Goal < ActiveRecord::Base
+  include Commentable
   validates :body, :user, presence: true
 
   belongs_to :user, inverse_of: :goals
