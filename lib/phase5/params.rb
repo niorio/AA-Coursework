@@ -3,6 +3,7 @@ require 'byebug'
 
 module Phase5
   class Params
+    attr_reader :params
     # use your initialize to merge params from
     # 1. query string
     # 2. post body
@@ -15,12 +16,10 @@ module Phase5
 
       if req.query_string
         qs_params = parse_www_encoded_form(req.query_string)
-        @params.merge!(qs_params)
       end
 
       if req.body
         body_params = parse_www_encoded_form(req.body)
-        @params.merge!(body_params)
       end
 
     end
@@ -44,22 +43,24 @@ module Phase5
     # { "user" => { "address" => { "street" => "main", "zip" => "89436" } } }
     def parse_www_encoded_form(www_encoded_form)
 
-      key_value_arrays = URI::decode_www_form(www_encoded_form)
+      key_values = URI::decode_www_form(www_encoded_form)
 
-      result = Hash.new{|h,k| h[k] = {} }
-
-      key_value_arrays.each do |arr|
-
+      key_values.each do |arr|
         value = arr[1]
         keys = parse_key(arr[0])
-
-        keys.each_with_index do |key,i|
-
-
-
-        end
+        nested_hash(@params, keys, value)
       end
+    end
 
+    def nested_hash(scope, keys, value)
+      if keys.count == 1
+        scope[keys.first] = value
+        scope
+      else
+        key = keys.shift
+        scope[key] ||= {}
+        nested_hash(scope[key],keys,value)
+      end
     end
 
     # this should return an array
