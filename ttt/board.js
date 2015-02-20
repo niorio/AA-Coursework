@@ -34,6 +34,24 @@ Board.prototype.winner = function(){
   if (this.board[0][2] === this.board[1][1] && this.board[1][1] === this.board[2][0] && this.board[1][1] !== null){
     return this.board[0][2];
   }
+
+  var empty_spaces = false;
+  for(var i = 0; i < 3; i += 1)
+  {
+      for(var j = 0; j < 3; j += 1)
+      {
+          if(this.board[i][j] === null)
+          {
+              empty_spaces = true;
+          }
+      }
+  }
+
+  if(empty_spaces === false)
+  {
+      return 0;
+  }
+
   return -1;
 };
 
