@@ -9,12 +9,11 @@ var reader = readline.createInterface({
   output: process.stdout
 });
 
-var p1 = new t3.Human();
-var p2 = new t3.Computer();
+var p1 = new t3.Human('X');
+var p2 = new t3.Computer('O');
 
 var game = new t3.Game(reader, p1, p2);
 
 game.run(function(){
-  console.log("game over");
   reader.close();
 });

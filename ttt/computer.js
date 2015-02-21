@@ -1,16 +1,14 @@
 "use strict";
 
 
-function Computer(){
-
-
+function Computer(mark){
+  this.mark = mark;
 }
 
-Computer.prototype.getMove = function(reader, board, makeMove, completionCallback){
+Computer.prototype.getMove = function(reader, makeMove, completionCallback){
 
   var move= [Math.floor(Math.random() * 3), Math.floor(Math.random() * 3)];
   makeMove(move, completionCallback);
-
 
 }
 

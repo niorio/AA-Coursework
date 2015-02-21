@@ -1,17 +1,16 @@
 "use strict";
 
 
-function Human(){
-
+function Human(mark){
+  this.human = true;
+  this.mark = mark;
 
 }
 
-Human.prototype.getMove = function(reader, board, makeMove, completionCallback){
-
+Human.prototype.getMove = function(reader, makeMove, completionCallback){
   var move;
-  board.print();
 
-  reader.question("\n\nWhere would you like to move?\n", function(answer){
+  reader.question("\nWhere would you like to move?\n", function(answer){
 
     move = answer.split(",");
     move = [parseInt(move[0]), parseInt(move[1])];
