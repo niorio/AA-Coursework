@@ -11,10 +11,14 @@
     <script src="../../ttt-core-solution/ttt-core.js"></script>
     <script src="../js/ttt-view.js"></script>
 
+    <figure></figure>
     <script>
-      var game = new TTT.Game();
-      var $body = $("body");
-      new TTT.View(game, $body);
+      $(document).on("ready", function (){
+        var game = new TTT.Game();
+        var $body = $("body");
+        var view = new TTT.View(game, $body);
+        view.bindEvents();
+      });
     </script>
   </body>
 </html>

@@ -42,17 +42,17 @@ ul {
 }
 
 .grid > li.clicked{
-  background: "white";
+  background: white;
 }
 
 .grid > li.victory {
-  backgrond: "green";
+  background: green;
 }
 
 .grid > li.x {
-  color: "blue";
+  color: blue;
 }
 
 .grid > li.o {
-  color: "red";
+  color: red;
 }
