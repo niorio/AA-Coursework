@@ -1,5 +1,5 @@
 <h2>New Tweet!</h2>
-<form action="/tweets" method="POST">
+<form data-tweets-ul="#feed" class="tweet-compose" action="/tweets" method="POST">
   <input
       type="hidden"
       name="authenticity_token"
@@ -11,16 +11,18 @@
   </label>
   <br>
 
-  <label>
-    Mention
-    <select name="tweet[mentioned_user_ids][]">
-      <option></option>
-      <% User.all.each do |user| %>
-        <option value="<%= user.id %>"><%= user.username %></option>
-      <% end %>
-    </select>
-  </label>
+  <script type="text/template">
+    <label>
+      Mention
+      <select name="tweet[mentioned_user_ids][]">
+        <option></option>
+        <% User.all.each do |user| %>
+          <option value="<%= user.id %>"><%= user.username %></option>
+        <% end %>
+      </select>
+    </label>
+  </script>
   <br>
-
+  <strong class="chars-left">140</strong>
   <input type="Submit" value="Post Tweet!">
 </form>

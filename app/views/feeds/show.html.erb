@@ -1,10 +1,80 @@
 <h1>Welcome <%= current_user.username %>!</h1>
 
 <b>Your Feed!</b>
-<ul>
+<ul id="feed">
   <% @feed_tweets.each do |tweet| %>
     <li><%= render "tweets/tweet", tweet: tweet %></li>
   <% end %>
 </ul>
 
 <%= render "tweets/form" %>
+
+<script charset="utf-8">
+  $.TweetCompose = function(el){
+    this.$el = $(el);
+    this.$inputs = this.$el.find(':input');
+    this.$charsLeft = this.$el.find('.chars-left');
+    this.$el.on('submit', this.submit.bind(this));
+    this.$el.find('textarea').keydown(this.countChars.bind(this))
+  }
+
+  $.TweetCompose.prototype.submit = function(event){
+    event.preventDefault();
+    var inputValues = $(event.currentTarget).serialize();
+    this.$inputs.prop('disabled', true);
+
+    $.ajax({
+      url: '/tweets',
+      type: 'post',
+      dataType: 'json',
+      data: inputValues,
+      success: this.handleSuccess.bind(this)
+    })
+  }
+
+  $.TweetCompose.prototype.countChars = function(event){
+    var tweetLength = $(event.currentTarget).val().length;
+    this.$charsLeft.text(140 - tweetLength);
+  }
+
+  $.TweetCompose.prototype.clearInput = function(){
+    // this.$inputs.val("");
+    this.$el.find(':input:not(:last)').val("");
+    this.$charsLeft.text("140");
+    this.$inputs.prop('disabled', false);
+  }
+
+  $.TweetCompose.prototype.handleSuccess = function(data){
+
+    console.log(data);
+    this.clearInput();
+    var $ul = $(this.$el.data('tweets-ul'));
+    var template = _.template("<li><%%= tweetContent %>\n" +
+                              "-- <a href='<%%= tweetUserShow %>'><%%= tweetUser %></a>"+
+                              "\n-- <%%= tweetCreatedAt %>")
+
+                              // <%% if (tweetMention){ %>
+                              //   <ul>
+                              //   <li><a href='<%%= tweetMentionShow %>'><%%= tweetMention %></a></li>
+                              //   </ul></li>
+
+    $ul.prepend(template({
+      tweetContent: data.content,
+      tweetUserShow: 'users/'+ data.user_id,
+      tweetUser: data.user.username,
+      tweetCreatedAt: data.created_at
+    }))
+
+  }
+
+  $.fn.tweetCompose = function(){
+    return this.each(function () {
+      new $.TweetCompose(this);
+    })
+  }
+
+  $(function(){
+    $('.tweet-compose').tweetCompose();
+  })
+
+</script>
