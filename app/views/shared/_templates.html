@@ -1,13 +1,58 @@
 <script type="text/template" id="pokemon-list-item-template">
+  <li class="poke-list-item" data-id="<%%= pokemon.get('id') %>">
+    Name: <%%= pokemon.escape('name') %><br>
+    Poke_Type: <%% pokemon.escape('poke_type') %><br>
+  </li>
+
 </script>
 
 <script type="text/template" id="pokemon-detail-template">
+  <div class="detail">
+    <img src="<%%= pokemon.escape('image_url') %>"></img><br>
+      <span style="font-weight:bold;">Name: <%%= pokemon.escape('name') %></span><br>
+      <span style="font-weight:bold;">Attack: <%%= pokemon.escape('attack') %></span><br>
+      <span style="font-weight:bold;">Defense: <%%= pokemon.escape('defense') %></span><br>
+      <span style="font-weight:bold;">Poke Type: <%%= pokemon.escape('poke_type') %></span><br>
+      <span style="font-weight:bold;">Moves: <%%= pokemon.escape('moves') %></span><br>
+     <br>
+    <span style="font-weight: bold;">Toys:</span><br>
+    <ul class="toys">
+
+    </ul>
+  </div>
 </script>
 
 <script type="text/template" id="toy-list-item-template">
+  <li data-id="<%%= toy.id %>" data-pokemon-id="<%%= toy.get('pokemon_id')%>">
+    Name: <%%= toy.escape('name') %><br>
+    Happiness: <%%= toy.escape('happiness') %><br>
+    Price: <%%= toy.escape('price') %><br>
+  </li>
+
 </script>
 
 <script type="text/template" id="toy-detail-template">
+  <div class="detail">
+    <img src="<%%= toy.escape('image_url') %>"/><br>
+    <span style="font-weight:bold;">Name: <%%= toy.escape('name') %></span><br>
+    <span style="font-weight:bold;">Happiness: <%%= toy.escape('happiness') %></span><br>
+    <span style="font-weight:bold;">Price: <%%= toy.escape('price') %></span><br>
+
+    <select data-pokemon-id="<%%= toy.get('pokemon_id') %>" data-toy-id="<%%= toy.id %>">
+      <%%= console.log(pokes) %>
+      <%% pokes.each( function(poke) { %>
+        <option value="<%%= poke.id %>"
+
+        <%% if (poke.id === toy.get('pokemon_id')) { %>
+          selected
+        <%% } %>
+
+        ><%%= poke.escape('name')%></option>
+
+      <%% }) %>
+
+    </select>
+  </div>
 </script>
 
 <script type="text/template" id="pokemon-form-template">
