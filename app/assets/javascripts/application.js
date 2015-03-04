@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require journal
+//= require jquery.serializejson
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

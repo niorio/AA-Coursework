@@ -4,17 +4,11 @@ window.Journal = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // alert('Hello from Backbone!');
+    new Journal.Routers.Posts({$el: $('body')});
   }
 };
 
 $(document).ready(function(){
   Journal.initialize();
-  var coll = new Journal.Collections.Posts();
-  coll.fetch({
-    success: function () {
-      var index = new Journal.Views.PostsIndex({collection: coll});
-      $('body').append(index.render().$el);
-    }
-  })
+  Backbone.history.start();
 });
