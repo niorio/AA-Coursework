@@ -2,6 +2,7 @@ Journal.Views.PostShow = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
   },
 
   template: JST['posts/show'],
