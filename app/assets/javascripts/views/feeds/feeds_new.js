@@ -23,8 +23,7 @@ NewsReader.Views.FeedsNew = Backbone.View.extend({
         Backbone.history.navigate('#', {trigger: true});
       },
       error: function(model, response){
-        var errors = response.responseText;
-        console.log(errors);
+        that.$el.prepend("Error: Invalid URL");
       }
     })
 

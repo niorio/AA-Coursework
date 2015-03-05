@@ -15471,3 +15471,1543 @@ Started GET "/api/feeds" for 127.0.0.1 at 2015-03-05 16:32:02 -0500
 Processing by Api::FeedsController#index as JSON
   [1m[35mFeed Load (0.4ms)[0m  SELECT "feeds".* FROM "feeds"
 Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-03-05 16:33:12 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (2.8ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:33:27 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 508ms (Views: 508.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-03-05 16:33:28 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[35mFeed Load (0.8ms)[0m  SELECT "feeds".* FROM "feeds"
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:33:50 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"http://feeds.washingtonpost.com/rss/rss_govbeat", "feed"=>{"url"=>"http://feeds.washingtonpost.com/rss/rss_govbeat"}}
+  [1m[36mFeed Load (0.7ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'http://feeds.washingtonpost.com/rss/rss_govbeat' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "feeds" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["title", "GovBeat"], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["url", "http://feeds.washingtonpost.com/rss/rss_govbeat"]]
+  [1m[35m (38.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (12.9ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["feed_id", 7], ["guid", "http://www.washingtonpost.com/blogs/govbeat/?p=23383"], ["json", "{\"title\":\"Colorado gets sued by a third group over marijuana legalization\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/665706/s/4413a3f7/sc/8/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A50Ccolorado0Egets0Esued0Eby0Ea0Ethird0Egroup0Eover0Emarijuana0Elegalization0C/story01.htm\",\"description\":\"A third group is taking Colorado to court over its decision to legalize pot. A group of sheriffs and prosecutors from Colorado, Nebraska and Kansas filed a lawsuit Thursday centered on twin claims. Those within the state say the law — passed by voters as a constitutional amendment in 2012 — forces them to choose between the state and [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/665706/s/4413a3f7/sc/8/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166844349/u/0/f/665706/c/34656/s/4413a3f7/sc/8/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/05/colorado-gets-sued-by-a-third-group-over-marijuana-legalization/#comments\",\"pubDate\":\"2015-03-05T11:18:38-05:00\",\"category\":\"Colorado\",\"guid\":\"http://www.washingtonpost.com/blogs/govbeat/?p=23383\",\"dc_creator\":\"Niraj Chokshi\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/665706/s/4413a3f7/sc/8/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A50Ccolorado0Egets0Esued0Eby0Ea0Ethird0Egroup0Eover0Emarijuana0Elegalization0C/story01.htm"], ["published_at", Thu, 05 Mar 2015 16:18:38 UTC +00:00], ["title", "Colorado gets sued by a third group over marijuana legalization"], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["feed_id", 7], ["guid", "http://www.washingtonpost.com/blogs/govbeat/?p=23368"], ["json", "{\"title\":\"A ‘battle for Seattle’ between two airlines is fueling huge growth\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/665706/s/4410d3f6/sc/10/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A50Ca0Ebattle0Efor0Eseattle0Ebetween0Etwo0Eairlines0Eis0Efueling0Ehuge0Egrowth0C/story01.htm\",\"description\":\"Update: An earlier version of this post said Cathay Pacific flew into Seattle. It does not. SEATAC, Wash. \\u0026amp;#8212; The first thing a traveler driving to Seattle-Tacoma International Airport sees, even before the main terminal itself, is a fleet of Boeing 737 aircraft, decked out in the blue and white trim of Alaska Airlines, huddled [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/665706/s/4410d3f6/sc/10/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166832980/u/0/f/665706/c/34656/s/4410d3f6/sc/10/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/05/a-battle-for-seattle-between-two-airlines-is-fueling-huge-growth/#comments\",\"pubDate\":\"2015-03-05T06:00:33-05:00\",\"category\":\"Washington\",\"guid\":\"http://www.washingtonpost.com/blogs/govbeat/?p=23368\",\"dc_creator\":\"Reid Wilson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/665706/s/4410d3f6/sc/10/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A50Ca0Ebattle0Efor0Eseattle0Ebetween0Etwo0Eairlines0Eis0Efueling0Ehuge0Egrowth0C/story01.htm"], ["published_at", Thu, 05 Mar 2015 11:00:33 UTC +00:00], ["title", "A ‘battle for Seattle’ between two airlines is fueling huge growth"], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["feed_id", 7], ["guid", "http://www.washingtonpost.com/blogs/govbeat/?p=23344"], ["json", "{\"title\":\"Maps: The nation’s fastest-growing big cities are in the South and the West\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/665706/s/440a0582/sc/10/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Cmaps0Ethe0Enations0Efastest0Egrowing0Ebig0Ecities0Eare0Ein0Ethe0Esouth0Eand0Ethe0Ewest0C/story01.htm\",\"description\":\"The fastest-growing big cities in the nation are concentrated in the South and West. As the newly released Census maps below show, cities with populations above 100,000 in those regions grew most between 2000 and 2010, and 2010 and 2013. And not all of them were the flagship cities in their region. \\u0026amp;#8220;[M]any of the [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/665706/s/440a0582/sc/10/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166817694/u/0/f/665706/c/34656/s/440a0582/sc/10/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/04/maps-the-nations-fastest-growing-big-cities-are-in-the-south-and-the-west/#comments\",\"pubDate\":\"2015-03-04T13:30:12-05:00\",\"category\":\"States\",\"guid\":\"http://www.washingtonpost.com/blogs/govbeat/?p=23344\",\"dc_creator\":\"Niraj Chokshi\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/665706/s/440a0582/sc/10/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Cmaps0Ethe0Enations0Efastest0Egrowing0Ebig0Ecities0Eare0Ein0Ethe0Esouth0Eand0Ethe0Ewest0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 18:30:12 UTC +00:00], ["title", "Maps: The nation’s fastest-growing big cities are in the South and the West"], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["feed_id", 7], ["guid", "http://www.washingtonpost.com/blogs/govbeat/?p=23321"], ["json", "{\"title\":\"For the first time since 1984, unemployment fell in every state and D.C. last year\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/665706/s/440936a3/sc/13/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Cfor0Ethe0Efirst0Etime0Esince0E19840Eunemployment0Efell0Ein0Eevery0Estate0Eand0Ed0Ec0Elast0Eyear0C/story01.htm\",\"description\":\"For the first time in three decades, unemployment fell in every state and the District of Columbia last year. The last time that happened, in 1984, Apple was unveiling the original Macintosh. Nearly half the nation — 24 states — saw the unemployment rate drop by one percentage point or more last year. Illinois saw the biggest decline, of 2 [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/665706/s/440936a3/sc/13/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166816152/u/0/f/665706/c/34656/s/440936a3/sc/13/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/04/for-the-first-time-since-1984-unemployment-fell-in-every-state-and-d-c-last-year/#comments\",\"pubDate\":\"2015-03-04T12:30:32-05:00\",\"category\":\"Economy\",\"guid\":\"http://www.washingtonpost.com/blogs/govbeat/?p=23321\",\"dc_creator\":\"Niraj Chokshi\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/665706/s/440936a3/sc/13/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Cfor0Ethe0Efirst0Etime0Esince0E19840Eunemployment0Efell0Ein0Eevery0Estate0Eand0Ed0Ec0Elast0Eyear0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 17:30:32 UTC +00:00], ["title", "For the first time since 1984, unemployment fell in every state and D.C. last year"], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["feed_id", 7], ["guid", "http://www.washingtonpost.com/blogs/govbeat/?p=23331"], ["json", "{\"title\":\"South Carolina governor away on hush-hush trip. Quick, tell Appalachian Trail jokes!\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/665706/s/4409553c/sc/7/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Csouth0Ecarolina0Egovernor0Egoes0Emissing0Equick0Etell0Eappalachian0Etrail0Ejokes0C/story01.htm\",\"description\":\"South Carolina Gov. Nikki Haley (R) has left the state for what her office says is an economic development trip — but they won\\u0026amp;#8217;t say where she is. Haley and South Carolina Commerce Secretary Bobby Hitt left Columbia on Sunday. Flight records reviewed by the State newspaper show that the plane Hitt was traveling on — along [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/665706/s/4409553c/sc/7/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166807259/u/0/f/665706/c/34656/s/4409553c/sc/7/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/04/south-carolina-governor-goes-missing-quick-tell-appalachian-trail-jokes/#comments\",\"pubDate\":\"2015-03-04T11:59:14-05:00\",\"category\":\"South Carolina\",\"guid\":\"http://www.washingtonpost.com/blogs/govbeat/?p=23331\",\"dc_creator\":\"Reid Wilson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/665706/s/4409553c/sc/7/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Csouth0Ecarolina0Egovernor0Egoes0Emissing0Equick0Etell0Eappalachian0Etrail0Ejokes0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 16:59:14 UTC +00:00], ["title", "South Carolina governor away on hush-hush trip. Quick, tell Appalachian Trail jokes!"], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (33.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00], ["feed_id", 7], ["guid", "http://www.washingtonpost.com/blogs/govbeat/?p=23311"], ["json", "{\"title\":\"A lot of states are trying to ban gay conversion therapy for kids. Guess which one is doing the opposite.\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/665706/s/440650d3/sc/7/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Ca0Elot0Eof0Estates0Eare0Etrying0Eto0Eban0Egay0Econversion0Etherapy0Efor0Ekids0Eguess0Ewhich0Eone0Eis0Edoing0Ethe0Eopposite0C/story01.htm\",\"description\":\"Following a slew of defeats in 2014, the movement to ban gay conversion therapy for minors has its hopes pinned, for now, on two states where bills are making progress this year. Last week, both SF 334, a senate bill in Iowa and HB 15-1175, a house bill in Colorado, passed out of their respective [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/665706/s/440650d3/sc/7/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166795576/u/0/f/665706/c/34656/s/440650d3/sc/7/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"http://www.washingtonpost.com/blogs/govbeat/wp/2015/03/04/a-lot-of-states-are-trying-to-ban-gay-conversion-therapy-for-kids-guess-which-one-is-doing-the-opposite/#comments\",\"pubDate\":\"2015-03-04T07:00:26-05:00\",\"category\":\"Colorado\",\"guid\":\"http://www.washingtonpost.com/blogs/govbeat/?p=23311\",\"dc_creator\":\"Jeff Guo\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/665706/s/440650d3/sc/7/l/0L0Swashingtonpost0N0Cblogs0Cgovbeat0Cwp0C20A150C0A30C0A40Ca0Elot0Eof0Estates0Eare0Etrying0Eto0Eban0Egay0Econversion0Etherapy0Efor0Ekids0Eguess0Ewhich0Eone0Eis0Edoing0Ethe0Eopposite0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 12:00:26 UTC +00:00], ["title", "A lot of states are trying to ban gay conversion therapy for kids. Guess which one is doing the opposite."], ["updated_at", Thu, 05 Mar 2015 21:33:50 UTC +00:00]]
+PG::StringDataRightTruncation: ERROR:  value too long for type character varying(255)
+: INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 473ms
+
+PG::StringDataRightTruncation - ERROR:  value too long for type character varying(255)
+:
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:786:in `exec_cache'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:139:in `block in exec_query'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:435:in `block in log'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:430:in `log'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:137:in `exec_query'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:184:in `exec_insert'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/database_statements.rb:96:in `insert'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/query_cache.rb:14:in `insert'
+  activerecord (4.0.2) lib/active_record/relation.rb:76:in `insert'
+  activerecord (4.0.2) lib/active_record/persistence.rb:509:in `create_record'
+  activerecord (4.0.2) lib/active_record/attribute_methods/dirty.rb:78:in `create_record'
+  activerecord (4.0.2) lib/active_record/callbacks.rb:306:in `block in create_record'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2710071867169551298__create__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  activerecord (4.0.2) lib/active_record/callbacks.rb:306:in `create_record'
+  activerecord (4.0.2) lib/active_record/timestamp.rb:57:in `create_record'
+  activerecord (4.0.2) lib/active_record/persistence.rb:477:in `create_or_update'
+  activerecord (4.0.2) lib/active_record/callbacks.rb:302:in `block in create_or_update'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__2710071867169551298__save__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  activerecord (4.0.2) lib/active_record/callbacks.rb:302:in `create_or_update'
+  activerecord (4.0.2) lib/active_record/persistence.rb:128:in `save!'
+  activerecord (4.0.2) lib/active_record/validations.rb:57:in `save!'
+  activerecord (4.0.2) lib/active_record/attribute_methods/dirty.rb:41:in `save!'
+  activerecord (4.0.2) lib/active_record/transactions.rb:275:in `block in save!'
+  activerecord (4.0.2) lib/active_record/transactions.rb:326:in `block in with_transaction_returning_status'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/database_statements.rb:202:in `block in transaction'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/database_statements.rb:210:in `within_new_transaction'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/database_statements.rb:202:in `transaction'
+  activerecord (4.0.2) lib/active_record/transactions.rb:209:in `transaction'
+  activerecord (4.0.2) lib/active_record/transactions.rb:323:in `with_transaction_returning_status'
+  activerecord (4.0.2) lib/active_record/transactions.rb:275:in `save!'
+  activerecord (4.0.2) lib/active_record/validations.rb:41:in `create!'
+  app/models/entry.rb:7:in `create_from_json!'
+  app/models/feed.rb:14:in `block in find_or_create_by_url'
+  app/models/feed.rb:13:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:35:37 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"http://feeds.washingtonpost.com/rss/rss_post-everything", "feed"=>{"url"=>"http://feeds.washingtonpost.com/rss/rss_post-everything"}}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'http://feeds.washingtonpost.com/rss/rss_post-everything' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "feeds" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["title", "PostEverything"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["url", "http://feeds.washingtonpost.com/rss/rss_post-everything"]]
+  [1m[35m (10.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15353"], ["json", "{\"title\":\"Stress-testing the China model\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/4412de65/sc/36/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A50Cstress0Etesting0Ethe0Echina0Emodel0C/story01.htm\",\"description\":\"Hey, remember when authoritarian capitalism was the Big Bad of the global political economy? There was a lot of pre- and post-2008 talk that the mix of authoritarian political institutions, state-owned enterprises, national oil companies, and sovereign wealth funds were going to pose an existential challenge to free-market liberal democracies. While that latter group of [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/4412de65/sc/36/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166840963/u/0/f/670649/c/34656/s/4412de65/sc/36/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/05/stress-testing-the-china-model/#comments\",\"pubDate\":\"2015-03-05T09:36:00-05:00\",\"category\":\"Economy\",\"guid\":\"https://posteverything.washpost.com/?p=15353\",\"dc_creator\":\"Daniel W. Drezner\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/4412de65/sc/36/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A50Cstress0Etesting0Ethe0Echina0Emodel0C/story01.htm"], ["published_at", Thu, 05 Mar 2015 14:36:00 UTC +00:00], ["title", "Stress-testing the China model"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15316"], ["json", "{\"title\":\"Why the Americas are letting Venezuela self-destruct\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/44109ce5/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A50Cwhy0Ethe0Eamericas0Eare0Eletting0Evenezuela0Eself0Edestruct0C/story01.htm\",\"description\":\"Elected leaders across the hemisphere gathered to condemn and possibly sanction a neighboring president who closed down independent media and harassed political opponents. Venezuela?  If only. That was Peru in 2000. The actions of Peru’s former president Alberto Fujimori back then pale in comparison to the recent steps taken by Venezuelan President Nicolás Maduro. Partisan [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/44109ce5/sc/8/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166841186/u/0/f/670649/c/34656/s/44109ce5/sc/8/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/05/why-the-americas-are-letting-venezuela-self-destruct/#comments\",\"pubDate\":\"2015-03-05T06:00:35-05:00\",\"category\":\"Foreign affairs\",\"guid\":\"https://posteverything.washpost.com/?p=15316\",\"dc_creator\":\"Amanda Erickson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/44109ce5/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A50Cwhy0Ethe0Eamericas0Eare0Eletting0Evenezuela0Eself0Edestruct0C/story01.htm"], ["published_at", Thu, 05 Mar 2015 11:00:35 UTC +00:00], ["title", "Why the Americas are letting Venezuela self-destruct"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15327"], ["json", "{\"title\":\"Should Shakespeare be censored?\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/44109ce8/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A50Cshould0Eshakespeare0Ebe0Ecensored0C/story01.htm\",\"description\":\"\\u0026amp;#160; Shakespeare’s plays contain anti-Semitism, racism and sexism, sexual abuse and violence; they magnify the tenor of their age. But should they be censored when they might offend a particular community? Actor Mark Rylance, former artistic director of the Globe theater, recently said that he has sometimes cut \\u0026amp;#8220;some unfortunate anti-Semitic things\\u0026amp;#8221; from Shakespeare’s plays: [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/44109ce8/sc/38/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166841185/u/0/f/670649/c/34656/s/44109ce8/sc/38/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/05/should-shakespeare-be-censored/#comments\",\"pubDate\":\"2015-03-05T06:00:25-05:00\",\"category\":\"Arts \\u0026amp; Culture\",\"guid\":\"https://posteverything.washpost.com/?p=15327\",\"dc_creator\":\"Amanda Erickson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/44109ce8/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A50Cshould0Eshakespeare0Ebe0Ecensored0C/story01.htm"], ["published_at", Thu, 05 Mar 2015 11:00:25 UTC +00:00], ["title", "Should Shakespeare be censored?"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15300"], ["json", "{\"title\":\"Three ways of looking at Netanyahu’s speech to Congress\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/440777bd/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A40Cthree0Eways0Eof0Elooking0Eat0Enetanyahus0Espeech0Eto0Econgress0C/story01.htm\",\"description\":\"So Israeli Prime Minister Benjamin Netanyahu gave his Big Speech to Congress  on Tuesday, and the reviews have ranged from underwhelmed to rapturous to clever to carefully targeted. I would get kicked out of the International Brotherhood of Serious Foreign Policy Thinkers if I didn\\u0026amp;#8217;t offer my own two cents, so here goes: 1) As an [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/440777bd/sc/8/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166810478/u/0/f/670649/c/34656/s/440777bd/sc/8/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/04/three-ways-of-looking-at-netanyahus-speech-to-congress/#comments\",\"pubDate\":\"2015-03-04T09:30:20-05:00\",\"category\":\"National security\",\"guid\":\"https://posteverything.washpost.com/?p=15300\",\"dc_creator\":\"Daniel W. Drezner\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/440777bd/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A40Cthree0Eways0Eof0Elooking0Eat0Enetanyahus0Espeech0Eto0Econgress0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 14:30:20 UTC +00:00], ["title", "Three ways of looking at Netanyahu’s speech to Congress"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15269"], ["json", "{\"title\":\"Shmuley Boteach isn’t ‘America’s rabbi’\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/440591b4/sc/20/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A40Cshmuley0Eboteach0Eisnt0Eamericas0Erabbi0C/story01.htm\",\"description\":\"This past weekend, Rabbi Shmuley Boteach set off a firestorm with his full-page ad in the New York Times accusing National Security Adviser Susan E. Rice of turning a blind eye to the Rwandan genocide when she was on President Bill Clinton\\u0026amp;#8217;s national security team in the 1990s. (This was after Rice had criticized Israeli [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/440591b4/sc/20/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166793228/u/0/f/670649/c/34656/s/440591b4/sc/20/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/04/shmuley-boteach-isnt-americas-rabbi/#comments\",\"pubDate\":\"2015-03-04T06:00:21-05:00\",\"category\":\"Defense\",\"guid\":\"https://posteverything.washpost.com/?p=15269\",\"dc_creator\":\"Lisa Bonos\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/440591b4/sc/20/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A40Cshmuley0Eboteach0Eisnt0Eamericas0Erabbi0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 11:00:21 UTC +00:00], ["title", "Shmuley Boteach isn’t ‘America’s rabbi’"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15110"], ["json", "{\"title\":\"I’m a 12-year-old girl. Why don’t the characters in my apps look like me?\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/440591b5/sc/4/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A40Cim0Ea0E120Eyear0Eold0Egirl0Ewhy0Edont0Ethe0Echaracters0Ein0Emy0Eapps0Elook0Elike0Eme0C/story01.htm\",\"description\":\"For a 12-year-old girl, playing games on an iPhone is pretty regular behavior. Almost all of my friends have game apps on their phones, and we\\u0026amp;#8217;ll spend sleepovers playing side by side. One day I noticed that my friend was playing a game as a boy character and asked why she wasn\\u0026amp;#8217;t a girl. She [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/440591b5/sc/4/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166793227/u/0/f/670649/c/34656/s/440591b5/sc/4/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/04/im-a-12-year-old-girl-why-dont-the-characters-in-my-apps-look-like-me/#comments\",\"pubDate\":\"2015-03-04T06:00:05-05:00\",\"category\":\"Technology\",\"guid\":\"https://posteverything.washpost.com/?p=15110\",\"dc_creator\":\"Jenny Rogers\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/440591b5/sc/4/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A40Cim0Ea0E120Eyear0Eold0Egirl0Ewhy0Edont0Ethe0Echaracters0Ein0Emy0Eapps0Elook0Elike0Eme0C/story01.htm"], ["published_at", Wed, 04 Mar 2015 11:00:05 UTC +00:00], ["title", "I’m a 12-year-old girl. Why don’t the characters in my apps look like me?"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15205"], ["json", "{\"title\":\"Is ‘House of Cards’ crueler to wonks or operatives?\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43fcd76e/sc/10/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A30Cis0Ehouse0Eof0Ecards0Ecrueler0Eto0Ewonks0Eor0Eoperatives0C/story01.htm\",\"description\":\"[SPOILER ALERT: THE FOLLOWING REVEALS MAJOR PLOT DETAILS FROM SEASON THREE OF HOUSE OF CARDS, BUT DON'T WORRY, IT DOES NOT MENTION THE BIG REVEAL THAT FRANK UNDERWOOD IS ACTUALLY A DEEP COVER SOVIET-TRAINED SPY. WE DON'T TALK ABOUT THAT AT ALL.] The hardworking staff here at Spoiler Alerts powered through season three of \\u0026amp;#8220;House of [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43fcd76e/sc/10/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166756305/u/0/f/670649/c/34656/s/43fcd76e/sc/10/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/03/is-house-of-cards-crueler-to-wonks-or-operatives/#comments\",\"pubDate\":\"2015-03-03T08:57:31-05:00\",\"category\":\"Politics\",\"guid\":\"https://posteverything.washpost.com/?p=15205\",\"dc_creator\":\"Daniel W. Drezner\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43fcd76e/sc/10/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A30Cis0Ehouse0Eof0Ecards0Ecrueler0Eto0Ewonks0Eor0Eoperatives0C/story01.htm"], ["published_at", Tue, 03 Mar 2015 13:57:31 UTC +00:00], ["title", "Is ‘House of Cards’ crueler to wonks or operatives?"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15243"], ["json", "{\"title\":\"‘The Birth of a Nation’: The most racist movie ever made\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43fae78c/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A30Cthe0Ebirth0Eof0Ea0Enation0C/story01.htm\",\"description\":\"A century ago, on March 3, 1915, the most reprehensibly racist film in Hollywood history opened in New York. “The Birth of a Nation” had premiered in Los Angeles on Feb. 8, and on Feb. 18 it became the first feature film to be screened at the White House. But the premiere at New York’s [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43fae78c/sc/38/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166758432/u/0/f/670649/c/34656/s/43fae78c/sc/38/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/03/the-birth-of-a-nation/#comments\",\"pubDate\":\"2015-03-03T06:30:15-05:00\",\"category\":\"Uncategorized\",\"guid\":\"https://posteverything.washpost.com/?p=15243\",\"dc_creator\":\"Marisa Bellack\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43fae78c/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A30Cthe0Ebirth0Eof0Ea0Enation0C/story01.htm"], ["published_at", Tue, 03 Mar 2015 11:30:15 UTC +00:00], ["title", "‘The Birth of a Nation’: The most racist movie ever made"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15228"], ["json", "{\"title\":\"I met a blind priest at the airport. Father Ted taught me to take a leap of faith.\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43fb2530/sc/10/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A30Ci0Emet0Ea0Eblind0Epriest0Eat0Ethe0Eairport0Efather0Eted0Etaught0Eme0Eto0Etake0Ea0Eleap0Eof0Efaith0C/story01.htm\",\"description\":\"Father Theodore Hesburgh, who died Thursday at 97, was no longer Notre Dame\\u0026amp;#8217;s president by the time I enrolled in 1994, yet he remained a campus legend, instantly recognizable in his crisp black shirt and clerical collar and with his shock of white hair. I knew he\\u0026amp;#8217;d done important things — advised six presidents, chaired the [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43fb2530/sc/10/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166747434/u/0/f/670649/c/34656/s/43fb2530/sc/10/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/03/i-met-a-blind-priest-at-the-airport-father-ted-taught-me-to-take-a-leap-of-faith/#comments\",\"pubDate\":\"2015-03-03T06:00:39-05:00\",\"category\":\"History\",\"guid\":\"https://posteverything.washpost.com/?p=15228\",\"dc_creator\":\"Jenny Rogers\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43fb2530/sc/10/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A30Ci0Emet0Ea0Eblind0Epriest0Eat0Ethe0Eairport0Efather0Eted0Etaught0Eme0Eto0Etake0Ea0Eleap0Eof0Efaith0C/story01.htm"], ["published_at", Tue, 03 Mar 2015 11:00:39 UTC +00:00], ["title", "I met a blind priest at the airport. Father Ted taught me to take a leap of faith."], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15099"], ["json", "{\"title\":\"How men use the word ‘drama’ to win fights against women\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43f3a8db/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A20Chow0Emen0Euse0Ethe0Eword0Edrama0Eto0Ewin0Efights0Eagainst0Ewomen0C/story01.htm\",\"description\":\"If you\\u0026amp;#8217;ve ever dated online, you\\u0026amp;#8217;ve surely noticed how many people are on the lookout for drama. \\u0026amp;#8220;Not into playing games or drama,\\u0026amp;#8221; is a classic cliche, a boogeymen of dating. But drama is one of those words whose meaning shifts depending on who’s using it. The specter of \\u0026amp;#8220;being dramatic\\u0026amp;#8221; or \\u0026amp;#8220;causing drama\\u0026amp;#8221; is [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43f3a8db/sc/8/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166726526/u/0/f/670649/c/34656/s/43f3a8db/sc/8/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/02/how-men-use-the-word-drama-to-win-fights-against-women/#comments\",\"pubDate\":\"2015-03-02T11:06:40-05:00\",\"category\":\"Uncategorized\",\"guid\":\"https://posteverything.washpost.com/?p=15099\",\"dc_creator\":\"Amanda Erickson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43f3a8db/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A20Chow0Emen0Euse0Ethe0Eword0Edrama0Eto0Ewin0Efights0Eagainst0Ewomen0C/story01.htm"], ["published_at", Mon, 02 Mar 2015 16:06:40 UTC +00:00], ["title", "How men use the word ‘drama’ to win fights against women"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15167"], ["json", "{\"title\":\"Right to work for less: Gov. Scott Walker wants to lower worker pay in Wisconsin\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43f3218c/sc/7/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A20Cright0Eto0Ework0Efor0Eless0Egov0Escott0Ewalker0Ewants0Eto0Elower0Eworker0Epay0Ein0Ewisconsin0C/story01.htm\",\"description\":\"The art of the misnomer — an industry standard of American politics — has rarely been more effectively applied than in right-to-work laws. Since Wisconsin Gov. Scott Walker (R) and the state legislature are in the midst of trying to turn the state into the 25th covered by the laws, it’s worth unpacking what’s going on here. [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43f3218c/sc/7/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166715804/u/0/f/670649/c/34656/s/43f3218c/sc/7/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/02/right-to-work-for-less-gov-scott-walker-wants-to-lower-worker-pay-in-wisconsin/#comments\",\"pubDate\":\"2015-03-02T10:00:36-05:00\",\"category\":\"Economy\",\"guid\":\"https://posteverything.washpost.com/?p=15167\",\"dc_creator\":\"Jared Bernstein\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43f3218c/sc/7/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A20Cright0Eto0Ework0Efor0Eless0Egov0Escott0Ewalker0Ewants0Eto0Elower0Eworker0Epay0Ein0Ewisconsin0C/story01.htm"], ["published_at", Mon, 02 Mar 2015 15:00:36 UTC +00:00], ["title", "Right to work for less: Gov. Scott Walker wants to lower worker pay in Wisconsin"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15176"], ["json", "{\"title\":\"An open letter to Scott Walker’s foreign policy team\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43f25132/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A20Can0Eopen0Eletter0Eto0Escott0Ewalkers0Eforeign0Epolicy0Eteam0C/story01.htm\",\"description\":\"Dear Mike Gallagher, Hi, I\\u0026amp;#8217;m Dan. We\\u0026amp;#8217;ve never met, but I\\u0026amp;#8217;ll be writing about the 2016 campaign and foreign policy a lot here at The Post, so I wanted to reach out. First of all, congratulations on joining Scott Walker\\u0026amp;#8217;s team - that\\u0026amp;#8217;s a big step up for you! Based on your bio, it looks very [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43f25132/sc/8/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166721506/u/0/f/670649/c/34656/s/43f25132/sc/8/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/02/an-open-letter-to-scott-walkers-foreign-policy-team/#comments\",\"pubDate\":\"2015-03-02T08:55:49-05:00\",\"category\":\"National security\",\"guid\":\"https://posteverything.washpost.com/?p=15176\",\"dc_creator\":\"Daniel W. Drezner\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43f25132/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A20Can0Eopen0Eletter0Eto0Escott0Ewalkers0Eforeign0Epolicy0Eteam0C/story01.htm"], ["published_at", Mon, 02 Mar 2015 13:55:49 UTC +00:00], ["title", "An open letter to Scott Walker’s foreign policy team"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15153"], ["json", "{\"title\":\"I’m the Air and Space Museum curator. Here’s what Leonard Nimoy meant to me.\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43e95ec2/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A10Cim0Ethe0Eair0Eand0Espace0Emuseum0Ecurator0Eheres0Ewhat0Eleonard0Enimoy0Emeant0Eto0Eme0C/story01.htm\",\"description\":\"On Friday, the world mourned the loss of actor, artist, and \\u0026amp;#8220;Star Trek\\u0026amp;#8221; icon Leonard Nimoy. I was struck by how many people and organizations outside of Hollywood memorialized him online and on social media. What is it about \\u0026amp;#8220;Star Trek,\\u0026amp;#8221; and Nimoy, that made them so beloved? Creator Gene Roddenberry liked to say that [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43e95ec2/sc/38/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166674358/u/0/f/670649/c/34656/s/43e95ec2/sc/38/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/03/01/im-the-air-and-space-museum-curator-heres-what-leonard-nimoy-meant-to-me/#comments\",\"pubDate\":\"2015-03-01T06:00:16-05:00\",\"category\":\"Arts \\u0026amp; Culture\",\"guid\":\"https://posteverything.washpost.com/?p=15153\",\"dc_creator\":\"Amanda Erickson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43e95ec2/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A30C0A10Cim0Ethe0Eair0Eand0Espace0Emuseum0Ecurator0Eheres0Ewhat0Eleonard0Enimoy0Emeant0Eto0Eme0C/story01.htm"], ["published_at", Sun, 01 Mar 2015 11:00:16 UTC +00:00], ["title", "I’m the Air and Space Museum curator. Here’s what Leonard Nimoy meant to me."], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15139"], ["json", "{\"title\":\"Message to the Fed: Asymmetric anchors don’t work\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43df2279/sc/22/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C270Cmessage0Eto0Ethe0Efed0Easymmetric0Eanchors0Edont0Ework0C/story01.htm\",\"description\":\"\\u0026amp;#160; The top line from Friday’s GDP report was that the economy expanded at 2.2 percent last quarter, a slower rate than the 2.6 percent that had been initially reported. I saw some things in the report that I didn’t love — the trade deficit shaved more than a point off of growth in the [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43df2279/sc/22/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166643539/u/0/f/670649/c/34656/s/43df2279/sc/22/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/27/message-to-the-fed-asymmetric-anchors-dont-work/#comments\",\"pubDate\":\"2015-02-27T14:58:03-05:00\",\"category\":\"Economy\",\"guid\":\"https://posteverything.washpost.com/?p=15139\",\"dc_creator\":\"Jared Bernstein\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43df2279/sc/22/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C270Cmessage0Eto0Ethe0Efed0Easymmetric0Eanchors0Edont0Ework0C/story01.htm"], ["published_at", Fri, 27 Feb 2015 19:58:03 UTC +00:00], ["title", "Message to the Fed: Asymmetric anchors don’t work"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15121"], ["json", "{\"title\":\"Theories of international politics and #TheDress\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43dd224b/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C270Ctheories0Eof0Einternational0Epolitics0Eand0Ethedress0C/story01.htm\",\"description\":\"The roiling debate over the color of the dress illustrates just how hard it is to agree on anything in world politics.\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43dd224b/sc/38/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166625567/u/0/f/670649/c/34656/s/43dd224b/sc/38/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/27/theories-of-international-politics-and-thedress/#comments\",\"pubDate\":\"2015-02-27T09:40:50-05:00\",\"category\":\"Foreign affairs\",\"guid\":\"https://posteverything.washpost.com/?p=15121\",\"dc_creator\":\"Daniel W. Drezner\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43dd224b/sc/38/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C270Ctheories0Eof0Einternational0Epolitics0Eand0Ethedress0C/story01.htm"], ["published_at", Fri, 27 Feb 2015 14:40:50 UTC +00:00], ["title", "Theories of international politics and #TheDress"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15086"], ["json", "{\"title\":\"Meet the 91-year-old whose wartime PTSD makes him the perfect guide for today’s veterans\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43db6861/sc/10/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C270Chow0Edoes0Ea0E910Eyear0Eold0Ewwii0Evet0Ehelp0Etodays0Eveterans0Eby0Etelling0Ethem0Ehe0Ehas0Eptsd0Etoo0C/story01.htm\",\"description\":\"They come into our office at the VA hospital in Montrose, N.Y., hesitantly. Eyes filled with doubt, hands restless. They want us to help them file compensation claims for disabilities resulting from their military service. Some have debilitating physical injuries, but almost every one also displays mannerisms — fidgeting in their seats, knees bobbing up and [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43db6861/sc/10/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166626584/u/0/f/670649/c/34656/s/43db6861/sc/10/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/27/how-does-a-91-year-old-wwii-vet-help-todays-veterans-by-telling-them-he-has-ptsd-too/#comments\",\"pubDate\":\"2015-02-27T06:00:31-05:00\",\"category\":\"Defense\",\"guid\":\"https://posteverything.washpost.com/?p=15086\",\"dc_creator\":\"Jenny Rogers\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43db6861/sc/10/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C270Chow0Edoes0Ea0E910Eyear0Eold0Ewwii0Evet0Ehelp0Etodays0Eveterans0Eby0Etelling0Ethem0Ehe0Ehas0Eptsd0Etoo0C/story01.htm"], ["published_at", Fri, 27 Feb 2015 11:00:31 UTC +00:00], ["title", "Meet the 91-year-old whose wartime PTSD makes him the perfect guide for today’s veterans"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15072"], ["json", "{\"title\":\"Why shy teachers like shy students\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43d4754a/sc/36/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C260Cwhy0Eshy0Eteachers0Elike0Eshy0Estudents0C/story01.htm\",\"description\":\"The more similar the personalities of teachers and their pupils, the more likely the teachers are to grade them highly, according to new research from Germany. The findings again open up the debate around the subtle biases teachers have about their pupils and how important it is to try to minimize their impact on children’s [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43d4754a/sc/36/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166591572/u/0/f/670649/c/34656/s/43d4754a/sc/36/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/26/why-shy-teachers-like-shy-students/#comments\",\"pubDate\":\"2015-02-26T12:21:24-05:00\",\"category\":\"Arts \\u0026amp; Culture\",\"guid\":\"https://posteverything.washpost.com/?p=15072\",\"dc_creator\":\"Amanda Erickson\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43d4754a/sc/36/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C260Cwhy0Eshy0Eteachers0Elike0Eshy0Estudents0C/story01.htm"], ["published_at", Thu, 26 Feb 2015 17:21:24 UTC +00:00], ["title", "Why shy teachers like shy students"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15057"], ["json", "{\"title\":\"How China is exploiting Edward Snowden… or thinks it’s exploiting Edward Snowden\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43d296f7/sc/46/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C260Chow0Echina0Eis0Eexploiting0Eedward0Esnowden0Eor0Ethinks0Eits0Eexploiting0Eedward0Esnowden0C/story01.htm\",\"description\":\"Reuters\\u0026amp;#8217; Paul Carsten had an exclusive Wednesday on China\\u0026amp;#8217;s crafty steps to shut out Western technology companies. In essence, China is using the outrage over Edward Snowden\\u0026amp;#8217;s NSA revelations to kick out Western firms and open up a secure market for indigenous Chinese tech firms: China has dropped some of the world\\u0026amp;#8217;s leading technology brands [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43d296f7/sc/46/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166595316/u/0/f/670649/c/34656/s/43d296f7/sc/46/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/26/how-china-is-exploiting-edward-snowden-or-thinks-its-exploiting-edward-snowden/#comments\",\"pubDate\":\"2015-02-26T09:47:12-05:00\",\"category\":\"Economy\",\"guid\":\"https://posteverything.washpost.com/?p=15057\",\"dc_creator\":\"Daniel W. Drezner\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43d296f7/sc/46/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C260Chow0Echina0Eis0Eexploiting0Eedward0Esnowden0Eor0Ethinks0Eits0Eexploiting0Eedward0Esnowden0C/story01.htm"], ["published_at", Thu, 26 Feb 2015 14:47:12 UTC +00:00], ["title", "How China is exploiting Edward Snowden… or thinks it’s exploiting Edward Snowden"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=15043"], ["json", "{\"title\":\"Pot is increasingly legal. Employers need to stop screening for it.\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43d0af79/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C260Cpot0Eis0Eincreasingly0Elegal0Eemployers0Eneed0Eto0Estop0Escreening0Efor0Eit0C/story01.htm\",\"description\":\"Legal barriers to marijuana are falling all over the United States. Pot, tried by nearly half of all Americans at some point in their lives, is already legal in some form in 23 states, and four states allow recreational use. Last Friday, two House bills were filed that could end the federal prohibition of marijuana, [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43d0af79/sc/8/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166577672/u/0/f/670649/c/34656/s/43d0af79/sc/8/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/26/pot-is-increasingly-legal-employers-need-to-stop-screening-for-it/#comments\",\"pubDate\":\"2015-02-26T06:00:23-05:00\",\"category\":\"Legal affairs\",\"guid\":\"https://posteverything.washpost.com/?p=15043\",\"dc_creator\":\"Jenny Rogers\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43d0af79/sc/8/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C260Cpot0Eis0Eincreasingly0Elegal0Eemployers0Eneed0Eto0Estop0Escreening0Efor0Eit0C/story01.htm"], ["published_at", Thu, 26 Feb 2015 11:00:23 UTC +00:00], ["title", "Pot is increasingly legal. Employers need to stop screening for it."], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "entries" ("created_at", "feed_id", "guid", "json", "link", "published_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00], ["feed_id", 8], ["guid", "https://posteverything.washpost.com/?p=14909"], ["json", "{\"title\":\"Is Bibi Netanyahu the second coming of Richard Nixon?\",\"link\":\"http://feeds.washingtonpost.com/c/34656/f/670649/s/43ca1b40/sc/7/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C250Cis0Ebibi0Enetanyahu0Ethe0Esecond0Ecoming0Eof0Erichard0Enixon0C/story01.htm\",\"description\":\"For the past few weeks, Israeli Prime Minister Benjamin Netanyahu has been on defense. His insistence on speaking in front of a joint session of Congress next week — against the wishes of the White House and despite opposition from numerous Democratic lawmakers planning to boycott the speech — has sparked criticism of him at home and abroad. Last [\\u0026amp;#8230;]\\u0026lt;img width='1' height='1' src='http://feeds.washingtonpost.com/c/34656/f/670649/s/43ca1b40/sc/7/mf.gif' border='0'/\\u0026gt;\\u0026lt;br clear='all'/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/rc/1/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/rc/1/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/rc/2/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/rc/2/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/rc/3/rc.htm\\\" rel=\\\"nofollow\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/rc/3/rc.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;br/\\u0026gt;\\u0026lt;a href=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/a2.htm\\\"\\u0026gt;\\u0026lt;img src=\\\"http://da.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/a2.img\\\" border=\\\"0\\\"/\\u0026gt;\\u0026lt;/a\\u0026gt;\\u0026lt;img width=\\\"1\\\" height=\\\"1\\\" src=\\\"http://pi.feedsportal.com/r/222166553734/u/0/f/670649/c/34656/s/43ca1b40/sc/7/a2t.img\\\" border=\\\"0\\\"/\\u0026gt;\",\"comments\":\"https://posteverything.washpost.com/wp/2015/02/25/is-bibi-netanyahu-the-second-coming-of-richard-nixon/#comments\",\"pubDate\":\"2015-02-25T13:46:47-05:00\",\"category\":\"Defense\",\"guid\":\"https://posteverything.washpost.com/?p=14909\",\"dc_creator\":\"Lisa Bonos\"}"], ["link", "http://feeds.washingtonpost.com/c/34656/f/670649/s/43ca1b40/sc/7/l/0Mposteverything0Bwashpost0N0Cwp0C20A150C0A20C250Cis0Ebibi0Enetanyahu0Ethe0Esecond0Ecoming0Eof0Erichard0Enixon0C/story01.htm"], ["published_at", Wed, 25 Feb 2015 18:46:47 UTC +00:00], ["title", "Is Bibi Netanyahu the second coming of Richard Nixon?"], ["updated_at", Thu, 05 Mar 2015 21:35:37 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 200 OK in 363ms (Views: 0.3ms | ActiveRecord: 32.4ms)
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-03-05 16:35:37 -0500
+Processing by Api::FeedsController#index as JSON
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:35:48 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"afwdhl", "feed"=>{"url"=>"afwdhl"}}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'afwdhl' LIMIT 1
+Completed 500 Internal Server Error in 61ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - afwdhl:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 34ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:35:57 -0500
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:35:59 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"fads", "feed"=>{"url"=>"fads"}}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'fads' LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - fads:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:42:04 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 345ms (Views: 344.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:42:05 -0500
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:42:08 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"asdefaerg", "feed"=>{"url"=>"asdefaerg"}}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'asdefaerg' LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - asdefaerg:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:43:26 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"google.com", "feed"=>{"url"=>"google.com"}}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'google.com' LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - google.com:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:45:31 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"google.com", "feed"=>{"url"=>"google.com"}}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'google.com' LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - google.com:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 69ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:32 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:33 -0500
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:45:35 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"adfgsegr", "feed"=>{"url"=>"adfgsegr"}}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'adfgsegr' LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - adfgsegr:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 66ms (Views: 65.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:45:53 -0500
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:45:55 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"sdfgsg", "feed"=>{"url"=>"sdfgsg"}}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'sdfgsg' LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - sdfgsg:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:46:03 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 65ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:04 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:05 -0500
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:46:06 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"asfg", "feed"=>{"url"=>"asfg"}}
+  [1m[36mFeed Load (0.6ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'asfg' LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - asfg:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+Processing by StaticPagesController#index as HTML
+  Rendered static_pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 61ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/jquery.serializejson.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/news_reader.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/feeds/index.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/feeds/index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/feeds/new.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/models/entry.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/feeds/show.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/models/feed.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/collections/entries.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/collections/feeds.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/views/feeds/feed_index_item.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/views/feeds/feed_show.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/views/feeds/feeds_index.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/views/feeds/feeds_new.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/routers/feeds_router.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-05 16:46:18 -0500
+
+
+Started POST "/api/feeds/" for 127.0.0.1 at 2015-03-05 16:46:24 -0500
+Processing by Api::FeedsController#create as JSON
+  Parameters: {"url"=>"sdhsgh", "feed"=>{"url"=>"sdhsgh"}}
+  [1m[35mFeed Load (0.5ms)[0m  SELECT "feeds".* FROM "feeds" WHERE "feeds"."url" = 'sdhsgh' LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+Errno::ENOENT - No such file or directory @ rb_sysopen - sdhsgh:
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/open-uri.rb:36:in `open'
+  app/models/feed.rb:11:in `find_or_create_by_url'
+  app/controllers/api/feeds_controller.rb:11:in `create'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__213718068505902254__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2810119972851929341__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/api/feeds" for 127.0.0.1 at 2015-03-05 16:57:20 -0500
+Processing by Api::FeedsController#index as HTML
+  [1m[36mFeed Load (4.3ms)[0m  [1mSELECT "feeds".* FROM "feeds"[0m
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 6.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20150305215916)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (111.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255) NOT NULL, "password_digest" character varying(255) NOT NULL, "session_token" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150305215916"]]
+  [1m[36m (22.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (37.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'nick' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."username" = 'nick' LIMIT 1[0m
+  [1m[35mSQL (67.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "session_token", "updated_at", "username") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Thu, 05 Mar 2015 22:41:58 UTC +00:00], ["password_digest", "$2a$10$nLT82t6XPaJZu/BBXKvOnOu6/JZGmlT6wkz4x1TUdPgOdSts5y9i."], ["session_token", "qm9KvADHy7QeoupiJZZ7vw"], ["updated_at", Thu, 05 Mar 2015 22:41:58 UTC +00:00], ["username", "nick"]]
+  [1m[36m (54.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnFeeds (20150305224951)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (17.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150305224951"]]
+  [1m[35m (16.9ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
