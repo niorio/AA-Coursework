@@ -1,4 +1,4 @@
-TrelloClone.Collections.Boards = Backbone.Collection.extend({
+TrelloClone.Collections.Cards = Backbone.Collection.extend({
 
   model: TrelloClone.Models.Card,
 

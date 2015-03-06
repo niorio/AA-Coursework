@@ -16,6 +16,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 .board-list li{
   padding: 0;
   display: block;
@@ -35,4 +36,18 @@
 }
 .board-list li a:hover{
   background: #85B5FF;
+}
+
+.list{
+  padding: 0;
+  display: block;
+  list-style: none;
+  height: 100px;
+  width: 150px;
+  background: #66A3FF;
+  margin: 10px;
+  float: left;
+  padding: 10px;
+
+
 }

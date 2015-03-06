@@ -3,7 +3,7 @@ TrelloClone.Models.Board = Backbone.Model.extend({
 
   lists: function () {
     if (!this._lists){
-      this._lists = new TrelloClone.Collections.Lists({}, {board_id: this.id})
+      this._lists = new TrelloClone.Collections.Lists({}, {board_id: this.id});
     }
     return this._lists
   },
