@@ -1,0 +1,9 @@
+<li class="list">
+  <strong><%= list.escape('title') %></strong>
+  <ul>
+    <% list.cards().each(function(card){ %>
+      <li> <%= card.escape('title') %> </li>
+    <% }); %>
+  </ul>
+  <button id="new-card">New Card</button>
+</li>

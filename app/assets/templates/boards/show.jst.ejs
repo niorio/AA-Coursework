@@ -1,15 +1,5 @@
 <h1><%= board.escape('title') %></h1>
-<ul>
-  <% board.lists().each(function(list){ %>
-    <li class="list">
-      <strong><%= list.escape('title') %></strong>
-      <ul>
-        <% list.cards().each(function(card){ %>
-          <li> <%= card.escape('title') %> </li>
-        <% }) %>
-      </ul>
-    </li>
-  <% }); %>
+<ul id="list-list">
 </ul>
 
 

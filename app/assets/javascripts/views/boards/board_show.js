@@ -1,6 +1,7 @@
 TrelloClone.Views.BoardShow = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
+    this.subviews = [];
   },
 
   template: JST['boards/show'],
@@ -13,6 +14,16 @@ TrelloClone.Views.BoardShow = Backbone.View.extend({
   render: function () {
     var content = this.template({ board: this.model });
     this.$el.html(content);
+
+    var listView;
+    var that = this;
+    this.model.lists().each(function(list){
+      listView = new TrelloClone.Views.ListShow({model: list});
+      that.subviews.push(listView);
+      that.$el.find($('#list-list')).append(listView.render().$el);
+    })
+
+
     return this;
   },
 
