@@ -1,0 +1,71 @@
+<h1><%= @cat.name %></h1>
+<table>
+  <% @cat.attributes.each do |attr_name, value| %>
+  <tr>
+  <td>
+    <%= attr_name %>
+  </td>
+  <td>
+    <%= value %>
+  </td>
+  </tr>
+  <% end %>
+</table>
+
+<% rentals = @cat.cat_rental_requests %>
+
+<h2>Rentals</h2>
+<table>
+  <tr>
+  <td>
+    Rental Start Date
+  </td>
+  <td>
+    Rental End Date
+  </td>
+  <td>
+    Requester Name
+  </td>
+  <td>
+    Status
+  </td>
+  </tr>
+  <% rentals.each do |rental| %>
+  <tr>
+  <td>
+    <%= rental.start_date %>
+  </td>
+  <td>
+    <%= rental.end_date %>
+  </td>
+  <td>
+    <%= rental.user.user_name %>
+  </td>
+  <td>
+    <%= rental.status %>
+  </td>
+  <td>
+    <% if current_user == @cat.owner %>
+      <% if rental.status == "PENDING" %>
+        <form id="form_id" action="<%= approve_rental_url(@cat.id)%>" method="post">
+          <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+          <input type="submit" value="Approve">
+        </form>
+        <form id="form_id" action="<%= deny_rental_url(@cat.id)%>" method="post">
+          <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+          <input type="submit" name="some_name" value="Deny">
+        </form>
+      <% end %>
+    <% end %>
+  </td>
+  </tr>
+  <% end %>
+</table>
+
+<a href="<%= cats_url%>">All Cats</a>

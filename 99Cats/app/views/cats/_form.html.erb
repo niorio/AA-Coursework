@@ -1,0 +1,46 @@
+<% action = @cat.id ? 'Update' : 'Create' %>
+<% url = @cat.id ? cat_url(@cat) : cats_url %>
+
+<h1><%= action %> Cat</h1>
+<form action="<%= url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+         
+  <% if action == 'Update' %>
+     <input type='hidden' name='_method' value='put'>
+  <% end %>
+
+<label for="cat_name">Name:</label>
+<input type="text" name="cat[name]" value="<%=@cat.name%>" id="cat_name">
+<br>
+
+<label for="cat_color">Color:</label>
+<select id="cat_color" name="cat[color]">
+  <option value="" >Select Color</option>
+  <option value="black" <%='selected' if @cat.color == 'black'%>>Black</option>
+  <option value="brown" <%='selected' if @cat.color == 'brown'%>>Brown</option>
+  <option value="gold" <%='selected' if @cat.color == 'gold'%>>Gold</option>
+  <option value="white" <%='selected' if @cat.color == 'white'%>>White</option>
+</select>
+<br>
+
+<label for="cat_birth_date">Birth Date:</label>
+<input type="date" id="cat_birth_date" name="cat[birth_date]"  value="<%=@cat.birth_date%>">
+<br>
+
+<label>Sex:</label>
+<input type="radio" name="cat[sex]" value="F" id"cat_sex_female" <%='checked' if @cat.sex == 'F'%>>
+<label for="cat_sex_female">Female</label>
+<br>
+<input type="radio" name="cat[sex]" value="M" id"cat_sex_male" <%='checked' if @cat.sex == 'M'%>>
+<label for="cat_sex_male">Male</label>
+<br>
+
+<label for="cat_description">Description:</label>
+<textarea name="cat[description]" id="cat_description"
+    value="<%=@cat.description%>"></textarea>
+<br>
+
+<input type="submit"  value="<%= action %>">
+</form>

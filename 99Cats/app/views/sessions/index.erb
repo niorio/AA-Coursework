@@ -1,0 +1,22 @@
+<h1>Your current sessions</h1>
+<% @user_sessions.each do |session| %>
+  <h5>Session Token:</h5>
+  <%= session.session_token %>
+
+  <h5>User Agent</h5>
+  <%=  request.env['HTTP_USER_AGENT'] %>
+  <br>
+
+  <form id="form_id" action="<%=end_session_sessions_url%>" method="post">
+
+    <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+
+    <input type="hidden" name="token" value="<%= session.session_token%>">
+    <button>Log Out</button>
+  </form>
+
+
+<% end %>

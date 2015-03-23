@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cats</title>
+</head>
+<body>
+  <% if signed_in? %>
+    hi <%= current_user.user_name %>
+    <form id="form_id" action=<%=session_url%> method="post">
+      <input type="hidden" name="_method" value="delete">
+
+      <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+      <button>Log Out</button>
+    </form>
+    <% else %>
+    <form id="form_id" action=<%=new_session_url%> method="get">
+      <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+      <button>Log In</button>
+    </form>
+
+    <form id="form_id" action=<%=new_user_url%> method="get">
+      <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+      <button>Sign Up</button>
+    </form>
+  <% end %>
+<%= yield %>
+
+<br><br><br>
+<% if signed_in? %>
+  <a href="<%= sessions_url%>">All Sessions</a>
+<% end %>
+</form>
+</body>
+</html>
