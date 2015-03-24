@@ -1,0 +1,27 @@
+<%= auth_token %>
+
+
+<label for="band_name">Band:</label>
+<select id="band_name" name="album[band_id]">
+
+  <% Band.all.each do |band| %>
+    <option value="<%= band.id %>"
+      <%= 'selected' if band.id == params[:id].to_i %> >
+      <%= band.name %>
+    </option>
+  <% end %>
+
+</select>
+<br>
+
+<label for="album_title">Title:</label>
+<input type="text" name="album[title]" value="<%=@album.title%>" id="album_title">
+<br>
+
+<input type="radio" name="album[style]" value="studio"
+      id="album_style_studio" <%= 'checked' if @album.style == 'studio'%>>
+<label for="album_style_studio">Studio</label>
+<input type="radio" name="album[style]" value="live"
+      id="album_style_live" <%= 'checked' if @album.style == 'live'%>>
+<label for="album_style_live">Live</label>
+<br>
