@@ -1,0 +1,65 @@
+html, body, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+.tower {
+  margin: 20px;
+  float: left;
+  width: 100px;
+  height: 150px;
+  border: 5px solid grey;
+}
+
+.tower:hover{
+  border: 5px solid red;
+}
+
+.selected{
+  border: 5px solid yellow;
+}
+
+.tower > li{
+  margin: auto;
+  background: gray;
+  border: 5px solid black;
+}
+
+.tower > li.invisible{
+  width: 90px;
+  height: 40px;
+  background: transparent;
+  border: 5px solid transparent;
+}
+
+.tower > li.block3 {
+  width: 90px;
+  height: 40px;
+}
+
+.tower > li.block2 {
+  width: 60px;
+  height: 40px;
+}
+
+.tower > li.block1 {
+  width: 30px;
+  height: 40px;
+}
