@@ -1,0 +1,19 @@
+<h1>Log In</h1>
+<br>
+
+<%= @user.errors.full_messages unless @user.errors.blank? %>
+
+<form action="<%= session_url %>" method="post">
+  <%= embed_token %>
+
+  <label for="username">Username:</label>
+  <input id="username" type="text" name="user[username]" value="<%= @user.username %>">
+  <br>
+
+  <label for="password">Password:</label>
+  <input id="password" type="password" name="user[password]" value="<%= @user.password %>">
+  <br>
+
+  <button name="submit">Log in</button>
+
+</form>

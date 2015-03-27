@@ -1,0 +1,23 @@
+<h1><a href="<%= @post.url || post_url(@post) %>"> "<%= @post.title %>"</a></h1>
+submitted by: <%= @post.author_name %> <%= time_ago_in_words(@post.created_at)  %> ago
+<br>
+
+<% if current_user == @post.author %>
+  <a href="<%= edit_post_url(@post) %>">Edit post</a>
+  <br>
+<% end %>
+<br>
+
+<% @all_comments.each do |parent_id, comments| %>
+  <% next unless parent_id.nil? %>
+
+  <% comments.each do |comment| %>
+    <%= render 'comments/nested_comment_display', comment: comment %>
+  <% end %>
+<% end %>
+<br>
+
+<a href="<%= new_post_comment_url(@post) %>">New Comment</a>
+<br>
+
+<a href= <%= sub_url(@post.subs.first) %>>Back</a>

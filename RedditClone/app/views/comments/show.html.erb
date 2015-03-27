@@ -1,0 +1,25 @@
+<h1>Comment</h1>
+<%= render 'comment_display', comment: @comment %>
+<br>
+<br>
+
+<h2>Replies</h2>
+
+<%= render 'nested_comment_display', comment: @comment %>
+
+<% if current_user == @comment.author %>
+  <a href="<%= edit_comment_url(@comment) %>">Edit</a>
+  <br>
+<% end %>
+<br>
+<br>
+
+<%= render 'nested_comment_form', parent_comment: @comment %>
+<br>
+
+<% if @comment.parent_comment %>
+  <a href="<%= comment_url(@comment.parent_comment) %>">Up one level</a>
+  <br>
+<% end %>
+
+<a href="<%= post_url(@post) %>">Back to <%= @post.title %></a>

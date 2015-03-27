@@ -1,0 +1,31 @@
+<h1>Edit Post</h1>
+
+<form action="<%= post_url(@post) %>" method="post">
+  <%= embed_token %>
+  <input type="hidden" name="_method" value="patch">
+
+  <label for="post_title">Title:</label>
+  <input id="post_title" type="text" name="post[title]" value="<%= @post.title %>">
+  <br>
+
+  <label for="post_url">URL:</label>
+  <input id="post_url" type="text" name="post[url]" value="<%= @post.url %>">
+  <br>
+
+  <label for="post_content">Content:</label>
+  <textarea id="post_content" name="post[content]" rows="8" cols="40"><%= @post.content %></textarea>
+  <br>
+
+  <label>Subs:</label>
+  <br>
+  <% @subs.each do |sub| %>
+    <label>
+      <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>"
+             <%= "checked" if @post.subs.include?(sub) %>>
+      <%= sub.title %>
+    </label>
+  <% end %>
+  <br>
+
+  <button name="submit">Update Post</button>
+</form>

@@ -1,0 +1,18 @@
+<h1>Sign Up</h1>
+<br>
+
+<%= @user.errors.full_messages %>
+
+<form action="<%= new_user_url%>" method="post">
+  <%= embed_token %>
+  <label for="user_name">Username:</label>
+  <input id="user_name" type="text" name="user[username]" value="<%= @user.username %>">
+  <br>
+
+  <label for="password">Password:</label>
+  <input id="password" type="password" name="user[password]">
+  <br>
+
+  <button name="submit">Sign up</button>
+
+</form>
